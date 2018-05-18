@@ -28,11 +28,13 @@
 
 
 // 1. create an array that holds all of your cards
+const stars = document.querySelector('.stars');
 const deck = document.querySelector('.deck');
 const cardList = document.querySelectorAll(".card");
 const cards = [...cardList];
 let openCards = [];
-
+let moves = 0;
+let incorrectGuess = 0;
 
 
 window.onload = newGame();
@@ -66,7 +68,6 @@ function flipCard(e) {
 function checkForMatch(e) {
   openCards.push(e.target);
   if (openCards.length === 2) {
-    // TO DO: increment move counter
     moveCounter();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
       // TO DO: change classes to matched
@@ -80,7 +81,7 @@ function checkForMatch(e) {
 }
 
 
-let moves = 0;
+
 
 function moveCounter() {
   const counter = document.querySelector('.moves');
@@ -101,6 +102,17 @@ function notMatch() {
     enableCards();
     openCards = [];
   }, 1000);
+
+  starRating();
+}
+
+
+function starRating() {
+  incorrectGuess++;
+
+  if (incorrectGuess === 5 || incorrectGuess === 10) {
+    stars.firstElementChild.remove(1);
+  }
 
 
   /*
