@@ -84,7 +84,8 @@ let moves = 0;
 
 function moveCounter() {
   const counter = document.querySelector('.moves');
-  counter.innerHTML = moves + 1;
+  moves++;
+  counter.innerHTML = moves;
 }
 
 
