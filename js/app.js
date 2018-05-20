@@ -33,6 +33,7 @@ const deck = document.querySelector('.deck');
 const cardList = document.querySelectorAll(".card");
 const cards = [...cardList];
 let openCards = [];
+let matches = [];
 let moves = 0;
 let incorrectGuess = 0;
 
@@ -70,9 +71,17 @@ function checkForMatch(e) {
   if (openCards.length === 2) {
     moveCounter();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
-      // TO DO: change classes to matched
-      // TO DO: deactivate
-      console.log('its a match!');
+      // TO DO:
+      // • check for winner
+      // • empty openCards array
+
+      openCards[0].classList.add('match');
+      openCards[1].classList.add('match');
+
+      //add to matches array
+      matches = [...matches, ...openCards];
+
+      finishMove();
       countMatches();
     } else {
       notMatch();
@@ -80,6 +89,10 @@ function checkForMatch(e) {
   }
 }
 
+function finishMove() {
+  //empty openCards array;
+  openCards = [];
+}
 
 
 
@@ -100,7 +113,7 @@ function notMatch() {
     openCards[0].classList.remove('open', 'show', 'incorrect');
     openCards[1].classList.remove('open', 'show', 'incorrect');
     enableCards();
-    openCards = [];
+    finishMove();
   }, 1000);
 
   starRating();
@@ -113,12 +126,6 @@ function starRating() {
   if (incorrectGuess === 5 || incorrectGuess === 10) {
     stars.firstElementChild.remove(1);
   }
-
-
-  /*
-    • add +1 to wrong number count
-      • if wrong number count > 6, remove one star
-      */
 }
 
 function disableCards() {
