@@ -44,15 +44,19 @@ deck.addEventListener('click', flipCard);
 
 
 function newGame() {
-
-  // 1. shuffle cards
+  // 1. reset cards to face down
+  for (const card of cards) {
+    card.classList.remove('open', 'show', 'match');
+  }
+  // 2. shuffle cards
   let shuffledCards = shuffle(cards);
 
-  // 2. append cards to board
+  // 3. append cards to board
   shuffledCards.forEach(function(card) {
     deck.appendChild(card);
   });
 }
+
 
 
 
@@ -78,10 +82,10 @@ function checkForMatch(e) {
       openCards[0].classList.add('match');
       openCards[1].classList.add('match');
 
-      //add to matches array
+      //add current match to matches array
       matches = [...matches, ...openCards];
 
-      finishMove();
+      emptyOpenCards();
       countMatches();
     } else {
       notMatch();
@@ -89,7 +93,7 @@ function checkForMatch(e) {
   }
 }
 
-function finishMove() {
+function emptyOpenCards() {
   //empty openCards array;
   openCards = [];
 }
@@ -113,7 +117,7 @@ function notMatch() {
     openCards[0].classList.remove('open', 'show', 'incorrect');
     openCards[1].classList.remove('open', 'show', 'incorrect');
     enableCards();
-    finishMove();
+    emptyOpenCards();
   }, 1000);
 
   starRating();
@@ -144,8 +148,9 @@ function enableCards() {
 }
 
 function countMatches() {
-  // TO DO: if matches = 16 you win
-  // else empty openCards
+  if (matches.length === 16) {
+    console.log('you win!');
+  }
 }
 
 
