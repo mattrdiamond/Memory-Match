@@ -63,8 +63,12 @@ function newGame() {
   moves = 0;
   counter.innerHTML = moves;
 
-  // 5. reset matches array
+  // 5. reset matches array and open cards array
   matches = [];
+  openCards = [];
+
+  // 6. reset star rating
+  resetStarRating();
 }
 
 
@@ -137,6 +141,13 @@ function starRating() {
   }
 }
 
+function resetStarRating() {
+  stars.innerHTML =
+  `<li><i class="fa fa-star"></i></li>
+  <li><i class="fa fa-star"></i></li>
+  <li><i class="fa fa-star"></i></li>`;
+}
+
 function disableCards() {
   deck.removeEventListener('click', flipCard);
   for (const card of cards) {
@@ -155,6 +166,7 @@ function enableCards() {
 function countMatches() {
   if (matches.length === 16) {
     console.log('you win!');
+    // const modal
   }
 }
 
