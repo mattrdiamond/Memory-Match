@@ -43,7 +43,6 @@ let incorrectGuess = 0;
 window.onload = newGame();
 
 deck.addEventListener('click', flipCard);
-
 resetButton.addEventListener('click', newGame);
 
 
@@ -63,8 +62,10 @@ function newGame() {
   // 4. reset move move move counter
   moves = 0;
   counter.innerHTML = moves;
-}
 
+  // 5. reset matches array
+  matches = [];
+}
 
 
 
@@ -83,9 +84,6 @@ function checkForMatch(e) {
   if (openCards.length === 2) {
     moveCounter();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
-      // TO DO:
-      // • check for winner
-      // • empty openCards array
 
       openCards[0].classList.add('match');
       openCards[1].classList.add('match');
