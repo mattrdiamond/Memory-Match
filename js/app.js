@@ -29,6 +29,8 @@
 
 // 1. create an array that holds all of your cards
 const stars = document.querySelector('.stars');
+const resetButton = document.querySelector('.restart');
+const counter = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
 const cardList = document.querySelectorAll(".card");
 const cards = [...cardList];
@@ -41,6 +43,8 @@ let incorrectGuess = 0;
 window.onload = newGame();
 
 deck.addEventListener('click', flipCard);
+
+resetButton.addEventListener('click', newGame);
 
 
 function newGame() {
@@ -55,6 +59,10 @@ function newGame() {
   shuffledCards.forEach(function(card) {
     deck.appendChild(card);
   });
+
+  // 4. reset move move move counter
+  moves = 0;
+  counter.innerHTML = moves;
 }
 
 
@@ -101,7 +109,6 @@ function emptyOpenCards() {
 
 
 function moveCounter() {
-  const counter = document.querySelector('.moves');
   moves++;
   counter.innerHTML = moves;
 }
