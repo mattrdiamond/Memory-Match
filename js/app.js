@@ -1,33 +1,3 @@
-/* ---------------------------------------------------
-- click event listener on deck
-- if li,
-  • start timer
-  • flip card-add 'open show' and 'disabled'
-  • add to open cards array
-- if card array > 0, check if current card matches card in open array
-- if it matches,
-  • increment move counter
-  • add both cards to pairs array,
-  • change 'open, show' classes to 'match'
-  • deactivate so you can no longer click on matched
-  • if number of pairs = 8 (16 cards)
-    + display modal with congrats, play again button
-- if it doesn't match,
-  • increment move counter
-  • add noMatch class to both cards in open card array
-  • setTimeout for a couple seconds
-    • disable other cards
-    • close both cards (remove show, open, noMatch)
-    • enable cards
-    • reset open cards array = [];
-    • add +1 to wrong number count
-      • if wrong number count > 6, remove one star
-
-- event listener for restart button
--------------------------------------------------------------------*/
-
-
-// 1. create an array that holds all of your cards
 const modal = document.querySelector('.modal');
 const stars = document.querySelector('.stars');
 const resetButton = document.querySelector('.restart');
@@ -57,20 +27,16 @@ function newGame() {
   }
   // 2. shuffle cards
   let shuffledCards = shuffle(cards);
-
   // 3. append cards to board
   shuffledCards.forEach(function(card) {
     deck.appendChild(card);
   });
-
   // 4. reset move move move counter
   moves = 0;
   counter.innerHTML = moves;
-
   // 5. reset matches array and open cards array
   matches = [];
   openCards = [];
-
   // 6. reset star rating
   resetStarRating();
 }
@@ -81,9 +47,10 @@ function flipCard(e) {
   const thisCard = e.target;
     if (thisCard.className === 'card') {
       thisCard.classList.add('open', 'show');
-      // TO DO: start timer
       checkForMatch(e);
     }
+    // start timer
+    setInterval(setTimer, 1000);
 }
 
 
@@ -108,7 +75,6 @@ function checkForMatch(e) {
 }
 
 function emptyOpenCards() {
-  //empty openCards array;
   openCards = [];
 }
 
@@ -193,6 +159,51 @@ function playAgain() {
   toggleModal();
   newGame();
 }
+
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+let sec = 0, min = 0;
+
+
+// function setTimer() {
+//   sec++;
+//   sec = sec % 60;
+//   if (sec < 10) {
+//     seconds.innerHTML = "0" + sec;
+//   } else {
+//     seconds.innerHTML = sec;
+//   }
+//   if (sec == 0) {
+//     min++;
+//     if (min < 10) {
+//       minutes.innerHTML = "0" + min;
+//     } else {
+//       minutes.innerHTML = min;
+//     }
+//   }
+// }
+
+function setTimer() {
+  sec++;
+  sec = sec % 60;
+
+  seconds.innerHTML = pad(sec);
+  if (sec == 0) {
+    min++;
+  }
+  minutes.innerHTML = pad(min);
+}
+
+
+function pad(val) {
+  if (val < 10) {
+    return "0" + val;
+  } else {
+    return val;
+  }
+}
+
+
 
 
 
