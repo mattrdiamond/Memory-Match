@@ -107,7 +107,8 @@ h1 {
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.score-panel .stars li,
+.modal-rating li {
     list-style: none;
     display: inline-block;
 }
@@ -124,7 +125,7 @@ h1 {
 .modal {
   opacity: 0;
   display: none;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -142,6 +143,15 @@ h1 {
   padding: 20px;
   width: 80%;
   position: relative;
+}
+
+.visible {
+  opacity: 1;
+  /* display: block; */
+}
+
+.display {
+  display: block;
 }
 
 .bounceInDown {

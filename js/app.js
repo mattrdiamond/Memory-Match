@@ -31,6 +31,8 @@
 const modal = document.querySelector('.modal');
 const stars = document.querySelector('.stars');
 const resetButton = document.querySelector('.restart');
+const modalButton = document.querySelector('.play-again');
+const popup = document.querySelector('.modal-content');
 const counter = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
 const cardList = document.querySelectorAll(".card");
@@ -45,6 +47,7 @@ window.onload = newGame();
 
 deck.addEventListener('click', flipCard);
 resetButton.addEventListener('click', newGame);
+modalButton.addEventListener('click', playAgain);
 
 
 function newGame() {
@@ -166,13 +169,29 @@ function enableCards() {
 
 function countMatches() {
   if (matches.length === 16) {
-    console.log('you win!');
-    modal.style.opacity = 1;
-    modal.style.display = 'block';
-    const modalContent = document.querySelector('.modal-content');
-    modalContent.classList.add('bounceInDown', 'animated');
-    // remove bounce and animated classes?
+    // populate modal
+    let starCount = stars.innerHTML;
+    document.querySelector('.modal-rating').innerHTML = starCount;
+    document.querySelector('.modal-moves').innerHTML = moves;
+    toggleModal();
   }
+}
+
+function toggleModal() {
+  if (modal.classList.contains('visible')) {
+    modal.classList.remove('visible');
+    setTimeout(function() {
+      modal.classList.remove('display');
+    }, 500);
+  } else {
+    modal.classList.add('visible', 'display');
+  }
+}
+
+
+function playAgain() {
+  toggleModal();
+  newGame();
 }
 
 
