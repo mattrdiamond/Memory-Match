@@ -50,7 +50,7 @@ function flipCard(e) {
       checkForMatch(e);
     }
     // start timer
-    setInterval(setTimer, 1000);
+    setTimer();
 }
 
 
@@ -160,9 +160,7 @@ function playAgain() {
   newGame();
 }
 
-let minutes = document.getElementById('minutes');
-let seconds = document.getElementById('seconds');
-let sec = 0, min = 0;
+
 
 
 // function setTimer() {
@@ -183,17 +181,25 @@ let sec = 0, min = 0;
 //   }
 // }
 
+// ---------------------------------------- timer
+
+let minutes = document.getElementById('minutes');
+let seconds = document.getElementById('seconds');
+let sec = 0, min = 0;
+let timer;
+
 function setTimer() {
-  sec++;
-  sec = sec % 60;
+  timer = setInterval(function() {
+    sec++;
+    sec = sec % 60;
 
-  seconds.innerHTML = pad(sec);
-  if (sec == 0) {
-    min++;
-  }
-  minutes.innerHTML = pad(min);
+    seconds.innerHTML = pad(sec);
+    if (sec == 0) {
+      min++;
+    }
+    minutes.innerHTML = pad(min);
+  }, 1000);
 }
-
 
 function pad(val) {
   if (val < 10) {
@@ -203,9 +209,13 @@ function pad(val) {
   }
 }
 
+// ---------------------------------------- stop timer
+function stopTimer() {
+  clearInterval(setTimer);
+}
 
 
-
+// ---------------------------------------- shuffle
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
