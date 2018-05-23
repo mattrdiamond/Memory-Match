@@ -2,6 +2,7 @@ const modal = document.querySelector('.modal');
 const stars = document.querySelector('.stars');
 const resetButton = document.querySelector('.restart');
 const modalButton = document.querySelector('.play-again');
+const timer = document.querySelector('.timer');
 const popup = document.querySelector('.modal-content');
 const counter = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
@@ -50,7 +51,12 @@ function flipCard(e) {
       checkForMatch(e);
     }
     // start timer
-    setTimer();
+    if (moves === 0) {
+      sec = 0;
+      min = 0;
+      setTimer();
+    }
+
 }
 
 
@@ -67,7 +73,7 @@ function checkForMatch(e) {
       matches = [...matches, ...openCards];
 
       emptyOpenCards();
-      countMatches();
+      verifyWinner();
     } else {
       notMatch();
     }
@@ -133,12 +139,16 @@ function enableCards() {
   }
 }
 
-function countMatches() {
+function verifyWinner() {
   if (matches.length === 16) {
-    // populate modal
+    // 1. stop timer
+    clearInterval(timerStart);
+    // 2. populate modal
     let starCount = stars.innerHTML;
+    let timeCount = time.innerHTML;
     document.querySelector('.modal-rating').innerHTML = starCount;
     document.querySelector('.modal-moves').innerHTML = moves;
+    document.querySelector('.modal-time').innerHTML = timeCount;
     toggleModal();
   }
 }
@@ -186,10 +196,10 @@ function playAgain() {
 let minutes = document.getElementById('minutes');
 let seconds = document.getElementById('seconds');
 let sec = 0, min = 0;
-let timer;
+let timerStart;
 
 function setTimer() {
-  timer = setInterval(function() {
+  timerStart = setInterval(function() {
     sec++;
     sec = sec % 60;
 
@@ -211,7 +221,7 @@ function pad(val) {
 
 // ---------------------------------------- stop timer
 function stopTimer() {
-  clearInterval(setTimer);
+  clearInterval(timerStart);
 }
 
 
