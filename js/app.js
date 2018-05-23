@@ -7,11 +7,15 @@ const popup = document.querySelector('.modal-content');
 const counter = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
 const cardList = document.querySelectorAll(".card");
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
 const cards = [...cardList];
 let openCards = [];
 let matches = [];
 let moves = 0;
 let incorrectGuess = 0;
+let sec = 0, min = 0;
+let timerStart;
 
 
 window.onload = newGame();
@@ -40,6 +44,12 @@ function newGame() {
   openCards = [];
   // 6. reset star rating
   resetStarRating();
+  // 7. reset timer
+  stopTimer();
+  sec = 0;
+  min = 0;
+  minutes.innerHTML = "00";
+  seconds.innerHTML = "00";
 }
 
 
@@ -52,8 +62,6 @@ function flipCard(e) {
     }
     // start timer
     if (moves === 0) {
-      sec = 0;
-      min = 0;
       setTimer();
     }
 
@@ -142,10 +150,10 @@ function enableCards() {
 function verifyWinner() {
   if (matches.length === 16) {
     // 1. stop timer
-    clearInterval(timerStart);
+    stopTimer();
     // 2. populate modal
     let starCount = stars.innerHTML;
-    let timeCount = time.innerHTML;
+    let timeCount = timer.innerHTML;
     document.querySelector('.modal-rating').innerHTML = starCount;
     document.querySelector('.modal-moves').innerHTML = moves;
     document.querySelector('.modal-time').innerHTML = timeCount;
@@ -193,10 +201,7 @@ function playAgain() {
 
 // ---------------------------------------- timer
 
-let minutes = document.getElementById('minutes');
-let seconds = document.getElementById('seconds');
-let sec = 0, min = 0;
-let timerStart;
+
 
 function setTimer() {
   timerStart = setInterval(function() {
