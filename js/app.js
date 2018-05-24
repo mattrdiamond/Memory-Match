@@ -110,8 +110,13 @@ function notMatch() {
   openCards[1].classList.add('incorrect');
 
   setTimeout(function() {
-    openCards[0].classList.remove('open', 'show', 'incorrect');
-    openCards[1].classList.remove('open', 'show', 'incorrect');
+    openCards[0].classList.add('wobble');
+    openCards[1].classList.add('wobble');
+  }, 500);
+
+  setTimeout(function() {
+    openCards[0].classList.remove('open', 'show', 'incorrect', 'wobble');
+    openCards[1].classList.remove('open', 'show', 'incorrect', 'wobble');
     enableCards();
     emptyOpenCards();
   }, 1000);
