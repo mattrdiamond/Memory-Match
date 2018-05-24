@@ -86,7 +86,7 @@ h1 {
 }
 
 .deck .card.disabled {
-  cursor: default;
+  pointer-events: none;
 }
 /*
  * Styles for the Score Panel

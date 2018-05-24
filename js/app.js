@@ -2,7 +2,6 @@ const modal = document.querySelector('.modal');
 const stars = document.querySelector('.stars');
 const resetButton = document.querySelector('.restart');
 const modalButton = document.querySelector('.play-again');
-const timer = document.querySelector('.timer');
 const popup = document.querySelector('.modal-content');
 const counter = document.querySelector('.moves');
 const deck = document.querySelector('.deck');
@@ -14,8 +13,9 @@ let openCards = [];
 let matches = [];
 let moves = 0;
 let incorrectGuess = 0;
+let clicks = 0;
 let sec = 0, min = 0;
-let timerStart;
+let timer;
 
 
 window.onload = newGame();
@@ -61,11 +61,13 @@ function flipCard(e) {
       checkForMatch(e);
     }
     // start timer
-    if (moves === 0) {
+    clicks++;
+    if (clicks === 1) {
       setTimer();
     }
 
 }
+
 
 
 function checkForMatch(e) {
@@ -133,7 +135,7 @@ function resetStarRating() {
 }
 
 function disableCards() {
-  deck.removeEventListener('click', flipCard);
+  // deck.removeEventListener('click', flipCard);
   for (const card of cards) {
     card.classList.add('disabled');
   }
@@ -141,7 +143,7 @@ function disableCards() {
 
 
 function enableCards() {
-  deck.addEventListener('click', flipCard);
+  // deck.addEventListener('click', flipCard);
   for (const card of cards) {
     card.classList.remove('disabled');
   }
@@ -153,7 +155,8 @@ function verifyWinner() {
     stopTimer();
     // 2. populate modal
     let starCount = stars.innerHTML;
-    let timeCount = timer.innerHTML;
+    // let timeCount = timer.innerHTML;
+    let timeCount = document.querySelector('.timer').innerHTML;
     document.querySelector('.modal-rating').innerHTML = starCount;
     document.querySelector('.modal-moves').innerHTML = moves;
     document.querySelector('.modal-time').innerHTML = timeCount;
@@ -204,15 +207,14 @@ function playAgain() {
 
 
 function setTimer() {
-  timerStart = setInterval(function() {
-    sec++;
-    sec = sec % 60;
-
-    seconds.innerHTML = pad(sec);
-    if (sec == 0) {
-      min++;
-    }
-    minutes.innerHTML = pad(min);
+  timer = setInterval(function() {
+      sec++;
+      sec = sec % 60;
+      seconds.innerHTML = pad(sec);
+      if (sec == 0) {
+        min++;
+      }
+      minutes.innerHTML = pad(min);
   }, 1000);
 }
 
@@ -226,7 +228,7 @@ function pad(val) {
 
 // ---------------------------------------- stop timer
 function stopTimer() {
-  clearInterval(timerStart);
+  clearInterval(timer);
 }
 
 
