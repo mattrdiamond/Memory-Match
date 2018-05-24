@@ -50,6 +50,7 @@ function newGame() {
   min = 0;
   minutes.innerHTML = "00";
   seconds.innerHTML = "00";
+  clicks = 0;
 }
 
 

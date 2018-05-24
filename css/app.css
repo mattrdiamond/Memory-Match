@@ -94,7 +94,7 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 360px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-around;
@@ -117,6 +117,18 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.score-panel .timer {
+  display: inline-block;
+  width: 62px;
+}
+
+.score-panel .star-container {
+  display: inline-block;
+  width: 130px;
+  text-align: right;
+}
+
 
 /*
  * Styles for modal
