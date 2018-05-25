@@ -6,6 +6,6 @@ This classic memory card game was built using HTML, CSS and JavaScript. The obje
 
 ### Scoring
 
-⭐️ ⭐️ ⭐️ = 11 moves or less
-⭐️ ⭐️ = 16 moves or less
+⭐️ ⭐️ ⭐️ = 11 moves or less  
+⭐️ ⭐️ = 16 moves or less  
 ⭐️ = 17 moves or more
