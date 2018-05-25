@@ -161,8 +161,7 @@ function verifyWinner() {
     stopTimer();
     // 2. populate modal
     let starCount = stars.innerHTML;
-    // let timeCount = timer.innerHTML;
-    let timeCount = document.querySelector('.timer').innerHTML;
+    let timeCount = document.querySelector('.timer').innerText;
     document.querySelector('.modal-rating').innerHTML = starCount;
     document.querySelector('.modal-moves').innerHTML = moves;
     document.querySelector('.modal-time').innerHTML = timeCount;

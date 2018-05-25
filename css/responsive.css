@@ -1,0 +1,24 @@
+@media only screen and (max-width: 711px) {
+  .deck {
+    width: 93%;
+    min-height: 97vw;
+    padding: 25px;
+    transition: padding 0.5s ease;
+  }
+
+  .deck .card {
+    height: 18vw;
+    width: 18vw;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .deck {
+    padding: 15px;
+  }
+
+  .deck .card {
+    height: 18.5vw;
+    width: 18.5vw;
+  }
+}

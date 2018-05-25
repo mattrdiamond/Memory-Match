@@ -18,7 +18,35 @@ body {
 
 body {
     background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    /* font-family: 'Coda', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+button {
+  padding: 1.25em 1.75em;
+  border: none;
+  border-radius: 5px;
+  background: #3fc2c3;
+  margin-top: 1em;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  transition: all .5s ease;
+  box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 2px 4px 8px 0 rgba(46,61,73,.2);
+  background: #2aadae;
 }
 
 .container {
@@ -31,6 +59,14 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+}
+
+.turquoise {
+  color: #3fc2c3;
+}
+
+.gray {
+  color: #667079;
 }
 
 /*
@@ -123,7 +159,9 @@ h1 {
 /*
  * Styles for the Score Panel
  */
-
+.fa-star {
+  color: #fad02b;
+}
 .score-panel {
     text-align: left;
     width: 360px;
@@ -157,7 +195,7 @@ h1 {
 
 .score-panel .star-container {
   display: inline-block;
-  width: 130px;
+  width: 135px;
   text-align: right;
 }
 
@@ -178,14 +216,17 @@ h1 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(82,92,100,0.7);
 }
 
 .modal-content {
   background-color: #fff;
   margin: auto;
-  padding: 20px;
-  width: 80%;
+  padding: 135px 30px 30px;
+  width: 340px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 35px 0 rgba(46,61,73,.4);
+  text-align: center;
   position: relative;
   -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
@@ -193,6 +234,48 @@ h1 {
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+.modal-content:before {
+  content: '';
+  width: 100%;
+  height: 115px;
+  background: #3fc2c3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-content:after {
+  content: '';
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  border-radius: 50%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff url('../img/trophy.svg') no-repeat center;
+  background-size: 55%;
+}
+
+.modal h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8em;
+  /* letter-spacing: .5px; */
+  font-weight: 300;
+  color: #2aadae;
+  margin: 1em 0 0;
+}
+
+.modal p {
+  margin: .75em;
+  color: #525C63;
+}
+
+.modal p:first-of-type {
+  margin: 1em;
 }
 
 .visible {
