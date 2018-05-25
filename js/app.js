@@ -1,21 +1,36 @@
+// variables for modal
 const modal = document.querySelector('.modal');
-const stars = document.querySelector('.stars');
-const resetButton = document.querySelector('.restart');
 const modalButton = document.querySelector('.play-again');
-const popup = document.querySelector('.modal-content');
-const counter = document.querySelector('.moves');
-const deck = document.querySelector('.deck');
-const cardList = document.querySelectorAll(".card");
+
+// variables for score panel
+const resetButton = document.querySelector('.restart');
+const stars = document.querySelector('.stars');
+
+// timer variables
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
-const cards = [...cardList];
-let openCards = [];
-let matches = [];
-let moves = 0;
-let incorrectGuess = 0;
-let clicks = 0;
 let sec = 0, min = 0;
 let timer;
+
+// deck of all cards
+const deck = document.querySelector('.deck');
+
+// cards array holds all cards
+const cardList = document.querySelectorAll(".card");
+const cards = [...cardList];
+
+// counter variables
+const counter = document.querySelector('.moves');
+let moves = 0;
+let incorrectGuess = 0;
+
+// array for open cards and matches
+let openCards = [];
+let matches = [];
+
+// track number of times player clicks on a card
+let clicks = 0;
+
 
 
 window.onload = newGame();
@@ -54,35 +69,47 @@ function newGame() {
 }
 
 
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 
 function flipCard(e) {
+  // 1. flip card and check for match
   const thisCard = e.target;
     if (thisCard.className === 'card') {
       thisCard.classList.add('open', 'show');
       checkForMatch(e);
     }
-    // start timer
+    // 2. start timer when first card is clicked
     clicks++;
     if (clicks === 1) {
       setTimer();
     }
-
 }
 
 
-
 function checkForMatch(e) {
+  // 1. add to open cards array and check for match
   openCards.push(e.target);
   if (openCards.length === 2) {
     moveCounter();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
-
       openCards[0].classList.add('match');
       openCards[1].classList.add('match');
-
-      //add current match to matches array
+      // 2. add match to matches array
       matches = [...matches, ...openCards];
-
+      // 3. empty open cards and check for winner
       emptyOpenCards();
       verifyWinner();
     } else {
@@ -91,10 +118,32 @@ function checkForMatch(e) {
   }
 }
 
+
 function emptyOpenCards() {
   openCards = [];
 }
 
+
+function notMatch() {
+  // 1. disable cards for animation
+  disableCards();
+  openCards[0].classList.add('incorrect');
+  openCards[1].classList.add('incorrect');
+  // 2. animate wobble after flipInY
+  setTimeout(function() {
+    openCards[0].classList.add('wobble');
+    openCards[1].classList.add('wobble');
+  }, 500);
+  // 3. reset cards after wobble animation
+  setTimeout(function() {
+    openCards[0].classList.remove('open', 'show', 'incorrect', 'wobble');
+    openCards[1].classList.remove('open', 'show', 'incorrect', 'wobble');
+    enableCards();
+    emptyOpenCards();
+  }, 1000);
+  // 4. update rating
+  starRating();
+}
 
 
 function moveCounter() {
@@ -103,35 +152,13 @@ function moveCounter() {
 }
 
 
-function notMatch() {
-  disableCards();
-
-  openCards[0].classList.add('incorrect');
-  openCards[1].classList.add('incorrect');
-
-  setTimeout(function() {
-    openCards[0].classList.add('wobble');
-    openCards[1].classList.add('wobble');
-  }, 500);
-
-  setTimeout(function() {
-    openCards[0].classList.remove('open', 'show', 'incorrect', 'wobble');
-    openCards[1].classList.remove('open', 'show', 'incorrect', 'wobble');
-    enableCards();
-    emptyOpenCards();
-  }, 1000);
-
-  starRating();
-}
-
-
 function starRating() {
   incorrectGuess++;
-
   if (incorrectGuess === 5 || incorrectGuess === 10) {
     stars.firstElementChild.remove(1);
   }
 }
+
 
 function resetStarRating() {
   stars.innerHTML =
@@ -140,8 +167,8 @@ function resetStarRating() {
   <li><i class="fa fa-star"></i></li>`;
 }
 
+
 function disableCards() {
-  // deck.removeEventListener('click', flipCard);
   for (const card of cards) {
     card.classList.add('disabled');
   }
@@ -149,17 +176,17 @@ function disableCards() {
 
 
 function enableCards() {
-  // deck.addEventListener('click', flipCard);
   for (const card of cards) {
     card.classList.remove('disabled');
   }
 }
 
+
 function verifyWinner() {
   if (matches.length === 16) {
     // 1. stop timer
     stopTimer();
-    // 2. populate modal
+    // 2. populate and show modal
     let starCount = stars.innerHTML;
     let timeCount = document.querySelector('.timer').innerText;
     document.querySelector('.modal-rating').innerHTML = starCount;
@@ -168,6 +195,7 @@ function verifyWinner() {
     toggleModal();
   }
 }
+
 
 function toggleModal() {
   if (modal.classList.contains('visible')) {
@@ -187,30 +215,6 @@ function playAgain() {
 }
 
 
-
-
-// function setTimer() {
-//   sec++;
-//   sec = sec % 60;
-//   if (sec < 10) {
-//     seconds.innerHTML = "0" + sec;
-//   } else {
-//     seconds.innerHTML = sec;
-//   }
-//   if (sec == 0) {
-//     min++;
-//     if (min < 10) {
-//       minutes.innerHTML = "0" + min;
-//     } else {
-//       minutes.innerHTML = min;
-//     }
-//   }
-// }
-
-// ---------------------------------------- timer
-
-
-
 function setTimer() {
   timer = setInterval(function() {
       sec++;
@@ -223,6 +227,8 @@ function setTimer() {
   }, 1000);
 }
 
+
+// @description add "0" before second/minute
 function pad(val) {
   if (val < 10) {
     return "0" + val;
@@ -231,25 +237,7 @@ function pad(val) {
   }
 }
 
-// ---------------------------------------- stop timer
+
 function stopTimer() {
   clearInterval(timer);
-}
-
-
-// ---------------------------------------- shuffle
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
 }
