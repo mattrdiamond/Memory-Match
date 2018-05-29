@@ -21,4 +21,8 @@
     height: 18.5vw;
     width: 18.5vw;
   }
+
+  .modal-content {
+    width: 320px;
+  }
 }
