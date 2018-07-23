@@ -9,3 +9,11 @@ This classic memory card game was built using HTML, CSS and JavaScript. The obje
 ⭐️ ⭐️ ⭐️ = 11 moves or less  
 ⭐️ ⭐️ = 16 moves or less  
 ⭐️ = 17 moves or more
+
+## Running Instructions
+
+Visit the live version [here](https://mattrdiamond.github.io/Memory-Match-Game/), or follow the instructions below to run locally.
+
+1. Click on "Clone or Download" on this repository page to download .zip file.
+2. Extract the folder contents and open "index.html" in a browser to run the application.
+3. At the bottom of the screen, you will find the Jasmine test results. Tests appear in green if they passed or red if they failed.
