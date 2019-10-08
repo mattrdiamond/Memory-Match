@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Matching Game</title>
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      rel="stylesheet prefetch"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap"
+      rel="stylesheet prefetch"
+    />
+    <link rel="stylesheet" href="css/index.min.css" />
+    <!-- <link rel="stylesheet" href="css/animation.css" />
+    <link rel="stylesheet" href="css/responsive.css" /> -->
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="game-inner-container">
+        <header>
+          <div class="nom-logo">
+            <img src="./img/nom_logo.svg" alt="Nom Nom logo" />
+            <p class="tagline">a rediculously sweet memory game</p>
+          </div>
+          <!-- start score panel -->
+          <section class="score-panel">
+            <div class="star-container">
+              <div><span>moves: </span><span class="moves number">0</span></div>
+              <div class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+              </div>
+            </div>
+            <div class="timer">
+              <i class="fa fa-clock-o gray"></i>
+              <!-- <span>Time: </span> -->
+              <label id="minutes" class="number">00</label>:<label
+                id="seconds"
+                class="number"
+                >00</label
+              >
+            </div>
+            <div class="restart">
+              <i class="fa fa-repeat purple"></i>
+              <span>restart</span>
+            </div>
+          </section>
+          <!-- end score panel -->
+        </header>
+        <!-- start deck -->
+        <ul class="deck">
+          <li class="card">
+            <i class="fa fa-diamond"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-paper-plane-o"></i>
+          </li>
+          <li class="card match">
+            <i class="fa fa-anchor"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-bolt"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-cube"></i>
+          </li>
+          <li class="card match">
+            <i class="fa fa-anchor"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-leaf"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-bicycle"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-diamond"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-bomb"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-leaf"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-bomb"></i>
+          </li>
+          <li class="card open show">
+            <i class="fa fa-bolt"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-bicycle"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-paper-plane-o"></i>
+          </li>
+          <li class="card">
+            <i class="fa fa-cube"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end deck -->
+    <!-- start modal -->
+    <aside class="modal">
+      <div class="modal-content">
+        <h4>Congratulations!</h4>
+        <p class="bold">You have an excellent memory!</p>
+        <p>Moves: <span class="modal-moves"></span></p>
+        <p>Time: <span class="modal-time"></span></p>
+        <p>Rating: <span class="modal-rating"></span></p>
+        <button class="play-again">Play Again!</button>
+      </div>
+    </aside>
+    <!-- end modal -->
+    <script src="js/app.js"></script>
+  </body>
+</html>

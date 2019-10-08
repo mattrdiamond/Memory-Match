@@ -1,0 +1,70 @@
+.deck {
+  width: 100%;
+  max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // background: gray;
+
+  .card {
+    height: var(--card-width);
+    width: var(--card-width);
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
+    margin: 0 15px 15px 0;
+    background-image: url("../img/sprinkles.svg");
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  .card:nth-child(n + 13) {
+    margin-bottom: 0;
+  }
+
+  .card.open {
+    transform: rotateY(0);
+    background: $purple;
+    cursor: default;
+    animation-duration: 0.75s;
+    backface-visibility: visible;
+    animation-name: flipInY;
+  }
+
+  .card.show {
+    font-size: 33px;
+  }
+
+  .card.match {
+    cursor: default;
+    background: $purple;
+    font-size: 33px;
+    animation-duration: 0.75s;
+    -webkit-animation-name: tada;
+    animation-name: tada;
+  }
+
+  .card.incorrect {
+    background: $red;
+  }
+
+  .card.disabled {
+    pointer-events: none;
+  }
+}
+
+.wobble {
+  animation-name: wobble !important;
+}

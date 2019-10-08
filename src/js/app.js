@@ -1,26 +1,27 @@
 // variables for modal
-const modal = document.querySelector('.modal');
-const modalButton = document.querySelector('.play-again');
+const modal = document.querySelector(".modal");
+const modalButton = document.querySelector(".play-again");
 
 // variables for score panel
-const resetButton = document.querySelector('.restart');
-const stars = document.querySelector('.stars');
+const resetButton = document.querySelector(".restart");
+const stars = document.querySelector(".stars");
 
 // timer variables
-const minutes = document.getElementById('minutes');
-const seconds = document.getElementById('seconds');
-let sec = 0, min = 0;
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+let sec = 0,
+  min = 0;
 let timer;
 
 // deck of all cards
-const deck = document.querySelector('.deck');
+const deck = document.querySelector(".deck");
 
 // cards array holds all cards
 const cardList = document.querySelectorAll(".card");
 const cards = [...cardList];
 
 // counter variables
-const counter = document.querySelector('.moves');
+const counter = document.querySelector(".moves");
 let moves = 0;
 let incorrectGuess = 0;
 
@@ -31,19 +32,16 @@ let matches = [];
 // track number of times player clicks on a card
 let clicks = 0;
 
-
-
 window.onload = newGame();
 
-deck.addEventListener('click', flipCard);
-resetButton.addEventListener('click', newGame);
-modalButton.addEventListener('click', playAgain);
-
+deck.addEventListener("click", flipCard);
+resetButton.addEventListener("click", newGame);
+modalButton.addEventListener("click", playAgain);
 
 function newGame() {
   // 1. reset cards to face down
   for (const card of cards) {
-    card.classList.remove('open', 'show', 'match');
+    card.classList.remove("open", "show", "match");
   }
   // 2. shuffle cards
   let shuffledCards = shuffle(cards);
@@ -68,10 +66,11 @@ function newGame() {
   clicks = 0;
 }
 
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue,
+    randomIndex;
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -83,21 +82,19 @@ function shuffle(array) {
   return array;
 }
 
-
 function flipCard(e) {
   // 1. flip card and check for match
   const thisCard = e.target;
-    if (thisCard.className === 'card') {
-      thisCard.classList.add('open', 'show');
-      checkForMatch(e);
-    }
-    // 2. start timer when first card is clicked
-    clicks++;
-    if (clicks === 1) {
-      setTimer();
-    }
+  if (thisCard.className === "card") {
+    thisCard.classList.add("open", "show");
+    checkForMatch(e);
+  }
+  // 2. start timer when first card is clicked
+  clicks++;
+  if (clicks === 1) {
+    setTimer();
+  }
 }
-
 
 function checkForMatch(e) {
   // 1. add to open cards array and check for match
@@ -105,8 +102,8 @@ function checkForMatch(e) {
   if (openCards.length === 2) {
     moveCounter();
     if (openCards[0].innerHTML === openCards[1].innerHTML) {
-      openCards[0].classList.add('match');
-      openCards[1].classList.add('match');
+      openCards[0].classList.add("match");
+      openCards[1].classList.add("match");
       // 2. add match to matches array
       matches = [...matches, ...openCards];
       // 3. empty open cards and check for winner
@@ -118,26 +115,24 @@ function checkForMatch(e) {
   }
 }
 
-
 function emptyOpenCards() {
   openCards = [];
 }
 
-
 function notMatch() {
   // 1. disable cards for animation
   disableCards();
-  openCards[0].classList.add('incorrect');
-  openCards[1].classList.add('incorrect');
+  openCards[0].classList.add("incorrect");
+  openCards[1].classList.add("incorrect");
   // 2. animate wobble after flipInY
   setTimeout(function() {
-    openCards[0].classList.add('wobble');
-    openCards[1].classList.add('wobble');
+    openCards[0].classList.add("wobble");
+    openCards[1].classList.add("wobble");
   }, 500);
   // 3. reset cards after wobble animation
   setTimeout(function() {
-    openCards[0].classList.remove('open', 'show', 'incorrect', 'wobble');
-    openCards[1].classList.remove('open', 'show', 'incorrect', 'wobble');
+    openCards[0].classList.remove("open", "show", "incorrect", "wobble");
+    openCards[1].classList.remove("open", "show", "incorrect", "wobble");
     enableCards();
     emptyOpenCards();
   }, 1000);
@@ -145,12 +140,10 @@ function notMatch() {
   starRating();
 }
 
-
 function moveCounter() {
   moves++;
   counter.innerHTML = moves;
 }
-
 
 function starRating() {
   incorrectGuess++;
@@ -159,28 +152,23 @@ function starRating() {
   }
 }
 
-
 function resetStarRating() {
-  stars.innerHTML =
-  `<li><i class="fa fa-star"></i></li>
-  <li><i class="fa fa-star"></i></li>
-  <li><i class="fa fa-star"></i></li>`;
+  stars.innerHTML = `<i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>`;
 }
-
 
 function disableCards() {
   for (const card of cards) {
-    card.classList.add('disabled');
+    card.classList.add("disabled");
   }
 }
-
 
 function enableCards() {
   for (const card of cards) {
-    card.classList.remove('disabled');
+    card.classList.remove("disabled");
   }
 }
-
 
 function verifyWinner() {
   if (matches.length === 16) {
@@ -188,45 +176,41 @@ function verifyWinner() {
     stopTimer();
     // 2. populate and show modal
     let starCount = stars.innerHTML;
-    let timeCount = document.querySelector('.timer').innerText;
-    document.querySelector('.modal-rating').innerHTML = starCount;
-    document.querySelector('.modal-moves').innerHTML = moves;
-    document.querySelector('.modal-time').innerHTML = timeCount;
+    let timeCount = document.querySelector(".timer").innerText;
+    document.querySelector(".modal-rating").innerHTML = starCount;
+    document.querySelector(".modal-moves").innerHTML = moves;
+    document.querySelector(".modal-time").innerHTML = timeCount;
     toggleModal();
   }
 }
 
-
 function toggleModal() {
-  if (modal.classList.contains('visible')) {
-    modal.classList.remove('visible');
+  if (modal.classList.contains("visible")) {
+    modal.classList.remove("visible");
     setTimeout(function() {
-      modal.classList.remove('display');
+      modal.classList.remove("display");
     }, 500);
   } else {
-    modal.classList.add('visible', 'display');
+    modal.classList.add("visible", "display");
   }
 }
-
 
 function playAgain() {
   toggleModal();
   newGame();
 }
 
-
 function setTimer() {
   timer = setInterval(function() {
-      sec++;
-      sec = sec % 60;
-      seconds.innerHTML = pad(sec);
-      if (sec == 0) {
-        min++;
-      }
-      minutes.innerHTML = pad(min);
+    sec++;
+    sec = sec % 60;
+    seconds.innerHTML = pad(sec);
+    if (sec == 0) {
+      min++;
+    }
+    minutes.innerHTML = pad(min);
   }, 1000);
 }
-
 
 // @description add "0" before second/minute
 function pad(val) {
@@ -236,7 +220,6 @@ function pad(val) {
     return val;
   }
 }
-
 
 function stopTimer() {
   clearInterval(timer);

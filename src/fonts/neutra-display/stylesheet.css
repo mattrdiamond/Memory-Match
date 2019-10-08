@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Neutraface 2 Display';
+    src: url('hinted-subset-Neutraface2Display-Bold.woff2') format('woff2'),
+        url('hinted-subset-Neutraface2Display-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neutraface 2 Display';
+    src: url('hinted-subset-Neutraface2Display-Medium.woff2') format('woff2'),
+        url('hinted-subset-Neutraface2Display-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+

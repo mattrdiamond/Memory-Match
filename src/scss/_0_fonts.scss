@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Nobel";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/Nobel/nobel-book.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Nobel";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/Nobel/nobel-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Nobel";
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/Nobel/nobel-bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Neutraface Display";
+  src: url("../fonts/neutra-display/hinted-subset-Neutraface2Display-Bold.woff2")
+      format("woff2"),
+    url("../fonts/neutra-display/hinted-subset-Neutraface2Display-Bold.woff")
+      format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neutraface Display";
+  src: url("../fonts/neutra-display/Neutraface2Display-Medium.woff2")
+      format("woff2"),
+    url("../fonts/neutra-display/Neutraface2Display-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
