@@ -3,10 +3,10 @@
 	<defs>
     <filter id="dropshadow" x="-10%" y="0" width= "200%" height="200%" >
       <feOffset in="SourceAlpha" result="offsetresult" dx="0" dy="5"/> <!-- dx, dy = how much to offset -->
-      <feGaussianBlur in="offsetresult" result="blurOut" stdDeviation="5" /> <!-- stdDeviation = how much to blur -->
+      <feGaussianBlur in="offsetresult" result="blurOut" stdDeviation="4" /> <!-- stdDeviation = how much to blur -->
       <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/> <!-- slope is the opacity of the shadow -->
+        <feFuncA type="linear" slope="0.0"/> <!-- slope is the opacity of the shadow -->
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/> <!-- this contains the offset blurred image -->

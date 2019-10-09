@@ -49,7 +49,7 @@ function newGame() {
   shuffledCards.forEach(function(card) {
     deck.appendChild(card);
   });
-  // 4. reset move move move counter
+  // 4. reset move counter
   moves = 0;
   counter.innerHTML = moves;
   // 5. reset matches array and open cards array
@@ -66,7 +66,6 @@ function newGame() {
   clicks = 0;
 }
 
-// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue,
@@ -147,13 +146,15 @@ function moveCounter() {
 
 function starRating() {
   incorrectGuess++;
-  if (incorrectGuess === 5 || incorrectGuess === 10) {
-    stars.firstElementChild.remove(1);
-  }
+  // if (incorrectGuess === 5 || incorrectGuess === 10) {
+  //   stars.firstElementChild.remove(1);
+  // }
+  if (incorrectGuess % 4 === 0) stars.firstElementChild.remove(1);
 }
 
 function resetStarRating() {
   stars.innerHTML = `<i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>
   <i class="fa fa-star"></i>`;
 }
@@ -207,12 +208,14 @@ function setTimer() {
     seconds.innerHTML = pad(sec);
     if (sec == 0) {
       min++;
+      min = min % 100; // reset to 0 if timer exceeds 99 min
+      console.log("min", min);
     }
     minutes.innerHTML = pad(min);
   }, 1000);
 }
 
-// @description add "0" before second/minute
+// add "0" before second/minute
 function pad(val) {
   if (val < 10) {
     return "0" + val;
