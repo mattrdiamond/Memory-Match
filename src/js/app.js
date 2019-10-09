@@ -4,7 +4,7 @@ const modalButton = document.querySelector(".play-again");
 
 // variables for score panel
 const resetButton = document.querySelector(".restart");
-const stars = document.querySelector(".stars");
+const hearts = document.querySelector(".hearts");
 
 // timer variables
 const minutes = document.getElementById("minutes");
@@ -55,8 +55,8 @@ function newGame() {
   // 5. reset matches array and open cards array
   matches = [];
   openCards = [];
-  // 6. reset star rating
-  resetStarRating();
+  // 6. reset heart rating
+  resetHeartRating();
   // 7. reset timer
   stopTimer();
   sec = 0;
@@ -136,7 +136,7 @@ function notMatch() {
     emptyOpenCards();
   }, 1000);
   // 4. update rating
-  starRating();
+  heartRating();
 }
 
 function moveCounter() {
@@ -144,19 +144,19 @@ function moveCounter() {
   counter.innerHTML = moves;
 }
 
-function starRating() {
+function heartRating() {
   incorrectGuess++;
-  // if (incorrectGuess === 5 || incorrectGuess === 10) {
-  //   stars.firstElementChild.remove(1);
-  // }
-  if (incorrectGuess % 4 === 0) stars.firstElementChild.remove(1);
+  let heartNumber = incorrectGuess / 4;
+  if (incorrectGuess % 4 === 0 && heartNumber <= 4) {
+    hearts.children[4 - heartNumber].classList.add("inactive");
+  }
 }
 
-function resetStarRating() {
-  stars.innerHTML = `<i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>
-  <i class="fa fa-star"></i>`;
+function resetHeartRating() {
+  hearts.innerHTML = `<i class="fa fa-heart"></i>
+  <i class="fa fa-heart"></i>
+  <i class="fa fa-heart"></i>
+  <i class="fa fa-heart"></i>`;
 }
 
 function disableCards() {
@@ -176,9 +176,9 @@ function verifyWinner() {
     // 1. stop timer
     stopTimer();
     // 2. populate and show modal
-    let starCount = stars.innerHTML;
+    let heartCount = hearts.innerHTML;
     let timeCount = document.querySelector(".timer").innerText;
-    document.querySelector(".modal-rating").innerHTML = starCount;
+    document.querySelector(".modal-rating").innerHTML = heartCount;
     document.querySelector(".modal-moves").innerHTML = moves;
     document.querySelector(".modal-time").innerHTML = timeCount;
     toggleModal();
@@ -209,7 +209,6 @@ function setTimer() {
     if (sec == 0) {
       min++;
       min = min % 100; // reset to 0 if timer exceeds 99 min
-      console.log("min", min);
     }
     minutes.innerHTML = pad(min);
   }, 1000);

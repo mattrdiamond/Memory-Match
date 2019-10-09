@@ -47,24 +47,31 @@ header {
     font-size: 1.25rem;
   }
 
-  .stars {
-    margin: 0;
-    padding: 0;
-    display: flex;
-
-    > i:not(:last-child) {
-      margin-right: 0.25rem;
-    }
-  }
-
-  .star-container {
+  .heart-container {
     // width: 135px;
     justify-content: space-between;
     flex: 0 0 100%;
     margin-bottom: 6px;
+    display: flex;
+  }
 
-    i {
-      color: $yellow-dark;
+  .hearts {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-self: flex-end;
+
+    > i {
+      color: $red;
+      font-size: 1.15rem;
+
+      &:not(:last-child) {
+        margin-right: 0.25rem;
+      }
+
+      &.inactive {
+        color: $yellow;
+      }
     }
   }
 
@@ -106,7 +113,7 @@ header {
   }
 }
 
-.score-panel .stars li,
+.score-panel .hearts li,
 .modal-rating li {
   list-style: none;
   display: inline-block;
