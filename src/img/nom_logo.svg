@@ -6,7 +6,7 @@
       <feGaussianBlur in="offsetresult" result="blurOut" stdDeviation="4" /> <!-- stdDeviation = how much to blur -->
       <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.0"/> <!-- slope is the opacity of the shadow -->
+        <feFuncA type="linear" slope="0.1"/> <!-- slope is the opacity of the shadow -->
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/> <!-- this contains the offset blurred image -->

@@ -10,13 +10,13 @@
     height: var(--card-width);
     width: var(--card-width);
     background: #2e3d49;
-    font-size: 0;
+    // font-size: 0;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
     margin: 0 15px 15px 0;
     background-image: url("../img/sprinkles.svg");
@@ -24,44 +24,61 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-  }
+    // transition: background-color 0.3s ease;
 
-  .card:nth-child(4n) {
-    margin-right: 0;
-  }
+    // &:hover {
+    //   background-color: #fff;
+    // }
 
-  .card:nth-child(n + 13) {
-    margin-bottom: 0;
-  }
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
 
-  .card.open {
-    transform: rotateY(0);
-    background: $purple;
-    cursor: default;
-    animation-duration: 0.75s;
-    backface-visibility: visible;
-    animation-name: flipInY;
-  }
+    &:nth-child(n + 13) {
+      margin-bottom: 0;
+    }
 
-  .card.show {
-    font-size: 33px;
-  }
+    > img {
+      height: 0;
+    }
 
-  .card.match {
-    cursor: default;
-    background: $purple;
-    font-size: 33px;
-    animation-duration: 0.75s;
-    -webkit-animation-name: tada;
-    animation-name: tada;
-  }
+    &.open {
+      transform: rotateY(0);
+      background: $purple;
+      cursor: default;
+      animation-duration: 0.75s;
+      backface-visibility: visible;
+      animation-name: flipInY;
+    }
 
-  .card.incorrect {
-    background: $red;
-  }
+    &.show > img {
+      // font-size: 33px;
+      // center image
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      width: 100%;
+      // use padding to shrink image
+      padding: 30px;
+      text-align: center;
+    }
 
-  .card.disabled {
-    pointer-events: none;
+    &.match {
+      cursor: default;
+      background: $purple;
+      // font-size: 33px;
+      animation-duration: 0.75s;
+      -webkit-animation-name: tada;
+      animation-name: tada;
+    }
+
+    &.incorrect {
+      background: $red;
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
   }
 }
 
