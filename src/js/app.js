@@ -1,35 +1,27 @@
-// variables for modal
-const modalWinner = document.getElementById("modal-winner");
-const modalLoser = document.getElementById("modal-loser");
-const modalButtons = document.querySelectorAll(".play-again");
-const body = document.querySelector("body");
-
-// variables for score panel
-const resetButton = document.querySelector(".restart");
+// DOM elements
 const hearts = document.querySelector(".hearts");
-
-// timer variables
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
-let sec = 0,
-  min = 0;
-let timer;
-
-// deck of all cards
+const counter = document.querySelector(".moves");
 const deck = document.querySelector(".deck");
+const cardList = document.querySelectorAll(".card");
+const modalLoser = document.getElementById("modal-loser");
+
+// timer variables
+let sec = 0,
+  min = 0,
+  timer;
 
 // cards array holds all cards
-const cardList = document.querySelectorAll(".card");
 const cards = [...cardList];
 
 // counter variables
-const counter = document.querySelector(".moves");
-let moves = 0;
-let incorrectGuess = 0;
+let moves = 0,
+  incorrectGuess = 0;
 
-// array for open cards and matches
-let openCards = [];
-let matches = [];
+// arrays for open cards and matches
+let openCards = [],
+  matches = [];
 
 // track number of times player clicks on a card
 let clicks = 0;
@@ -37,6 +29,9 @@ let clicks = 0;
 window.onload = init();
 
 function init() {
+  const modalButtons = document.querySelectorAll(".play-again");
+  const resetButton = document.querySelector(".restart");
+
   deck.addEventListener("click", flipCard);
   resetButton.addEventListener("click", newGame);
   modalButtons.forEach(button => button.addEventListener("click", playAgain));
@@ -199,12 +194,15 @@ function verifyWinner() {
     document.querySelector(".modal-time").innerHTML = timeCount;
     // 3. show modal after card animation
     setTimeout(function() {
+      const modalWinner = document.getElementById("modal-winner");
       toggleModal(modalWinner);
     }, 750);
   }
 }
 
 function toggleModal(modal) {
+  const body = document.querySelector("body");
+
   if (modal.classList.contains("visible")) {
     modal.classList.remove("visible");
     body.classList.remove("modal-open");
@@ -218,8 +216,8 @@ function toggleModal(modal) {
   }
 }
 
-function playAgain() {
-  const clickedModal = this.parentElement.parentElement;
+function playAgain(e) {
+  const clickedModal = e.target.parentElement.parentElement;
   toggleModal(clickedModal);
   newGame();
 }
@@ -231,7 +229,10 @@ function setTimer() {
     seconds.innerHTML = pad(sec);
     if (sec == 0) {
       min++;
-      min = min % 100; // reset to 0 if timer exceeds 99 min
+      if (min > 59) {
+        stopTimer();
+        toggleModal(modalLoser);
+      }
     }
     minutes.innerHTML = pad(min);
   }, 1000);

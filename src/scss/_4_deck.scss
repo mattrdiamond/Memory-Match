@@ -4,19 +4,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // background: gray;
 
   .card {
     height: var(--card-width);
     width: var(--card-width);
     background: #2e3d49;
-    // font-size: 0;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
     margin: 0 15px 15px 0;
     background-image: url("../img/sprinkles.svg");
@@ -24,11 +19,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    // transition: background-color 0.3s ease;
-
-    // &:hover {
-    //   background-color: #fff;
-    // }
 
     &:nth-child(4n) {
       margin-right: 0;
@@ -52,13 +42,11 @@
     }
 
     &.show > img {
-      // font-size: 33px;
-      // center image
       display: inline-block;
       vertical-align: middle;
       height: 100%;
       width: 100%;
-      // use padding to shrink image
+      // use padding to size image
       padding: 30px;
       text-align: center;
     }
@@ -66,9 +54,7 @@
     &.match {
       cursor: default;
       background: $purple;
-      // font-size: 33px;
       animation-duration: 0.75s;
-      -webkit-animation-name: tada;
       animation-name: tada;
     }
 

@@ -29,13 +29,9 @@ header {
   justify-content: flex-end;
   align-items: flex-end;
   flex-wrap: wrap;
-  // position: absolute;
-  // right: 0;
-  // bottom: 0;
   color: $gray;
 
   > div {
-    // padding: 0.675rem;
     background: $white-opaque;
     border-radius: 6px;
     padding: 0.6rem 0.9rem;
@@ -48,7 +44,6 @@ header {
   }
 
   .heart-container {
-    // width: 135px;
     justify-content: space-between;
     flex: 0 0 100%;
     margin-bottom: 6px;
@@ -81,7 +76,6 @@ header {
   }
 
   .restart {
-    // float: right;
     cursor: pointer;
     flex: 1 1;
     justify-content: center;
@@ -89,7 +83,6 @@ header {
 
     i {
       color: $blue;
-      // transition: color 0.1s ease;
     }
 
     &:hover {
@@ -102,8 +95,6 @@ header {
   }
 
   .timer {
-    // width: 62px;
-    // flex: 1 1;
     margin-right: 6px;
     min-width: 100px;
 
