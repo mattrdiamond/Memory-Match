@@ -147,7 +147,7 @@ header {
   margin: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  font-size: 0.92rem;
+  font-size: 0.93rem;
   margin-top: -5px;
   color: #7a3382;
 }
@@ -492,6 +492,10 @@ header {
 
 .modal-open {
   overflow: hidden;
+}
+
+.modal-rating {
+  color: #ff5363;
 }
 
 @-webkit-keyframes bounceInDown {

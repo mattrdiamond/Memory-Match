@@ -1,6 +1,7 @@
 // variables for modal
-const modal = document.querySelector(".modal");
-const modalButton = document.querySelector(".play-again");
+const modalWinner = document.getElementById("modal-winner");
+const modalLoser = document.getElementById("modal-loser");
+const modalButtons = document.querySelectorAll(".play-again");
 const body = document.querySelector("body");
 
 // variables for score panel
@@ -33,11 +34,14 @@ let matches = [];
 // track number of times player clicks on a card
 let clicks = 0;
 
-window.onload = newGame();
+window.onload = init();
 
-deck.addEventListener("click", flipCard);
-resetButton.addEventListener("click", newGame);
-modalButton.addEventListener("click", playAgain);
+function init() {
+  deck.addEventListener("click", flipCard);
+  resetButton.addEventListener("click", newGame);
+  modalButtons.forEach(button => button.addEventListener("click", playAgain));
+  newGame();
+}
 
 function newGame() {
   // 1. reset cards to face down
@@ -58,6 +62,7 @@ function newGame() {
   openCards = [];
   // 6. reset heart rating
   resetHeartRating();
+  incorrectGuess = 0;
   // 7. reset timer
   stopTimer();
   sec = 0;
@@ -68,7 +73,7 @@ function newGame() {
 }
 
 function shuffle(array) {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex;
 
@@ -148,8 +153,15 @@ function moveCounter() {
 function heartRating() {
   incorrectGuess++;
   let heartNumber = incorrectGuess / 4;
+  // remove heart for every 4 incorrect guesses
   if (incorrectGuess % 4 === 0 && heartNumber <= 4) {
     hearts.children[4 - heartNumber].classList.add("inactive");
+  }
+  if (incorrectGuess >= 16) {
+    stopTimer();
+    setTimeout(function() {
+      toggleModal(modalLoser);
+    }, 750);
   }
 }
 
@@ -176,23 +188,27 @@ function verifyWinner() {
   if (matches.length === 16) {
     // 1. stop timer
     stopTimer();
-    // 2. populate and show modal
-    let heartCount = hearts.innerHTML;
-    let timeCount = document
+    // 2. populate modal
+    const heartCount = hearts.innerHTML;
+    const timeCount = document
       .querySelector(".timer")
       .innerText.split("\n")
       .join("");
     document.querySelector(".modal-rating").innerHTML = heartCount;
     document.querySelector(".modal-moves").innerHTML = moves;
     document.querySelector(".modal-time").innerHTML = timeCount;
-    setTimeout(toggleModal, 750);
+    // 3. show modal after card animation
+    setTimeout(function() {
+      toggleModal(modalWinner);
+    }, 750);
   }
 }
 
-function toggleModal() {
+function toggleModal(modal) {
   if (modal.classList.contains("visible")) {
     modal.classList.remove("visible");
     body.classList.remove("modal-open");
+    // remove display after modal has faded out
     setTimeout(function() {
       modal.classList.remove("display");
     }, 500);
@@ -203,7 +219,8 @@ function toggleModal() {
 }
 
 function playAgain() {
-  toggleModal();
+  const clickedModal = this.parentElement.parentElement;
+  toggleModal(clickedModal);
   newGame();
 }
 
