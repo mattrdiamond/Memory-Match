@@ -1,6 +1,7 @@
 // variables for modal
 const modal = document.querySelector(".modal");
 const modalButton = document.querySelector(".play-again");
+const body = document.querySelector("body");
 
 // variables for score panel
 const resetButton = document.querySelector(".restart");
@@ -177,22 +178,27 @@ function verifyWinner() {
     stopTimer();
     // 2. populate and show modal
     let heartCount = hearts.innerHTML;
-    let timeCount = document.querySelector(".timer").innerText;
+    let timeCount = document
+      .querySelector(".timer")
+      .innerText.split("\n")
+      .join("");
     document.querySelector(".modal-rating").innerHTML = heartCount;
     document.querySelector(".modal-moves").innerHTML = moves;
     document.querySelector(".modal-time").innerHTML = timeCount;
-    toggleModal();
+    setTimeout(toggleModal, 750);
   }
 }
 
 function toggleModal() {
   if (modal.classList.contains("visible")) {
     modal.classList.remove("visible");
+    body.classList.remove("modal-open");
     setTimeout(function() {
       modal.classList.remove("display");
     }, 500);
   } else {
     modal.classList.add("visible", "display");
+    body.classList.add("modal-open");
   }
 }
 

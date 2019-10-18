@@ -23,7 +23,8 @@ body {
   // font-family: "Quicksand", sans-serif;
   // font-family: "Nobel", sans-serif;
   // font-family: "Neutraface Display", sans-serif;
-  font-family: "Fredoka One", sans-serif;
+  font-family: $text;
+  // letter-spacing: 0.5px;
   // font-weight: 600;
   -webkit-font-smoothing: antialiased;
 }
@@ -34,29 +35,25 @@ ul {
   margin: 0;
 }
 
-.bold {
-  font-weight: 600;
-}
-
 button {
   padding: 1.25rem 2rem;
   border: none;
   border-radius: 5px;
-  background: #3fc2c3;
-  margin-top: 1rem;
+  background-color: $yellow;
+  margin-top: 1.75rem;
   color: white;
   text-transform: uppercase;
   font-size: 13px;
-  font-weight: 600;
   letter-spacing: 1.5px;
   transition: all 0.5s ease;
-  box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  box-shadow: 8px 10px 20px 0 rgba(73, 73, 73, 0.15);
   cursor: pointer;
-}
+  font-family: "Fredoka One", sans-serif;
 
-button:hover {
-  box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
-  background: #2aadae;
+  &:hover {
+    box-shadow: 2px 4px 8px 0 rgba(73, 73, 73, 0.25);
+    background: $yellow-med;
+  }
 }
 
 .game-container {

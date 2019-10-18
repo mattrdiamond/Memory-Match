@@ -4,76 +4,130 @@
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(82, 92, 100, 0.7);
+  line-height: 1.75;
+
+  &.winner {
+    background-color: rgba(142, 71, 147, 0.95);
+
+    .modal-content:after {
+      top: 165px;
+    }
+  }
+
+  &.loser {
+    background-color: rgba(38, 196, 181, 0.95);
+
+    button {
+      background-color: $red;
+
+      &:hover {
+        background-color: $red-med;
+      }
+    }
+
+    .modal-content {
+      width: 340px;
+
+      &:before {
+        background-color: $red;
+        height: 160px;
+      }
+
+      &:after {
+        top: 125px;
+      }
+    }
+
+    .modal-image {
+      max-height: 150px;
+    }
+
+    h4 {
+      line-height: 1.75;
+    }
+  }
+
+  h4 {
+    font-size: 3.2rem;
+    color: $purple;
+    margin: 0;
+    font-weight: 300;
+    line-height: 1.5;
+    font-family: $display;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    margin: 0;
+    color: $gray-light;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 0;
+
+    &:first-of-type {
+      margin: 0 0 0.75rem;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .modal-content {
   background-color: #fff;
   margin: auto;
-  padding: 135px 30px 30px;
-  width: 340px;
+  // padding: 135px 30px 30px;
+  padding: 30px;
+  width: 370px;
   border-radius: 20px;
-  box-shadow: 5px 5px 35px 0 rgba(46, 61, 73, 0.4);
+  box-shadow: 5px 5px 35px 0 rgba(62, 36, 67, 0.6);
   text-align: center;
   position: relative;
-  -webkit-animation-name: bounceInDown;
   animation-name: bounceInDown;
-  -webkit-animation-duration: 1s;
   animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 200px;
+    background: $yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 20px 20px 0 0;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    background: #fff;
+    left: 0;
+    // top: 165px;
+    z-index: -1;
+    border-radius: 100%;
+  }
 }
 
-.modal-content:before {
-  content: "";
+.modal-image {
   width: 100%;
-  height: 115px;
-  background: #3fc2c3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 20px 20px 0 0;
+  // animation: test 2s infinite;
 }
 
-.modal-content:after {
-  content: "";
-  width: 125px;
-  height: 125px;
-  position: absolute;
-  border-radius: 50%;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff url("../img/trophy.svg") no-repeat center;
-  background-size: 55%;
-}
-
-.modal h4 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #2aadae;
-  margin: 1em 0 0;
-}
-
-.modal p {
-  margin: 0.75rem;
-  color: #525c63;
-}
-
-.modal p:first-of-type {
-  margin: 1rem;
-}
-
-.visible {
-  opacity: 1;
-}
-
-.display {
-  display: block;
+.modal-open {
+  overflow: hidden;
 }

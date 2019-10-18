@@ -64,7 +64,7 @@ body {
 
 body {
   background: #ffbb3c;
-  font-family: "Fredoka One", sans-serif;
+  font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -74,32 +74,28 @@ ul {
   margin: 0;
 }
 
-.bold {
-  font-weight: 600;
-}
-
 button {
   padding: 1.25rem 2rem;
   border: none;
   border-radius: 5px;
-  background: #3fc2c3;
-  margin-top: 1rem;
+  background-color: #ffbb3c;
+  margin-top: 1.75rem;
   color: white;
   text-transform: uppercase;
   font-size: 13px;
-  font-weight: 600;
   letter-spacing: 1.5px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  -webkit-box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
-          box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(73, 73, 73, 0.15);
+          box-shadow: 8px 10px 20px 0 rgba(73, 73, 73, 0.15);
   cursor: pointer;
+  font-family: "Fredoka One", sans-serif;
 }
 
 button:hover {
-  -webkit-box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
-          box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
-  background: #2aadae;
+  -webkit-box-shadow: 2px 4px 8px 0 rgba(73, 73, 73, 0.25);
+          box-shadow: 2px 4px 8px 0 rgba(73, 73, 73, 0.25);
+  background: #f2ae2f;
 }
 
 .game-container {
@@ -144,13 +140,14 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-family: "Fredoka One", sans-serif;
 }
 
 .nom-logo > p {
   margin: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   margin-top: -5px;
   color: #7a3382;
 }
@@ -170,7 +167,6 @@ header {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   color: #646464;
-  letter-spacing: 0.5px;
 }
 
 .score-panel > div {
@@ -363,80 +359,139 @@ header {
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(82, 92, 100, 0.7);
+  line-height: 1.75;
+}
+
+.modal.winner {
+  background-color: rgba(142, 71, 147, 0.95);
+}
+
+.modal.winner .modal-content:after {
+  top: 165px;
+}
+
+.modal.loser {
+  background-color: rgba(38, 196, 181, 0.95);
+}
+
+.modal.loser button {
+  background-color: #ff5363;
+}
+
+.modal.loser button:hover {
+  background-color: #f04454;
+}
+
+.modal.loser .modal-content {
+  width: 340px;
+}
+
+.modal.loser .modal-content:before {
+  background-color: #ff5363;
+  height: 160px;
+}
+
+.modal.loser .modal-content:after {
+  top: 125px;
+}
+
+.modal.loser .modal-image {
+  max-height: 150px;
+}
+
+.modal.loser h4 {
+  line-height: 1.75;
+}
+
+.modal h4 {
+  font-size: 3.2rem;
+  color: #8e4795;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: "Fredoka One", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.modal p {
+  margin: 0;
+  color: #7b7b7b;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0;
+}
+
+.modal p:first-of-type {
+  margin: 0 0 0.75rem;
+}
+
+.modal.visible {
+  opacity: 1;
+}
+
+.modal.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modal-content {
   background-color: #fff;
   margin: auto;
-  padding: 135px 30px 30px;
-  width: 340px;
+  padding: 30px;
+  width: 370px;
   border-radius: 20px;
-  -webkit-box-shadow: 5px 5px 35px 0 rgba(46, 61, 73, 0.4);
-          box-shadow: 5px 5px 35px 0 rgba(46, 61, 73, 0.4);
+  -webkit-box-shadow: 5px 5px 35px 0 rgba(62, 36, 67, 0.6);
+          box-shadow: 5px 5px 35px 0 rgba(62, 36, 67, 0.6);
   text-align: center;
   position: relative;
   -webkit-animation-name: bounceInDown;
-  animation-name: bounceInDown;
+          animation-name: bounceInDown;
   -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+          animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 
 .modal-content:before {
   content: "";
   width: 100%;
-  height: 115px;
-  background: #3fc2c3;
+  height: 200px;
+  background: #ffbb3c;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
   border-radius: 20px 20px 0 0;
 }
 
 .modal-content:after {
   content: "";
-  width: 125px;
-  height: 125px;
   position: absolute;
-  border-radius: 50%;
-  top: 50px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background: #fff url("../img/trophy.svg") no-repeat center;
-  background-size: 55%;
+  width: 100%;
+  height: 75px;
+  background: #fff;
+  left: 0;
+  z-index: -1;
+  border-radius: 100%;
 }
 
-.modal h4 {
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #2aadae;
-  margin: 1em 0 0;
+.modal-image {
+  width: 100%;
 }
 
-.modal p {
-  margin: 0.75rem;
-  color: #525c63;
-}
-
-.modal p:first-of-type {
-  margin: 1rem;
-}
-
-.visible {
-  opacity: 1;
-}
-
-.display {
-  display: block;
+.modal-open {
+  overflow: hidden;
 }
 
 @-webkit-keyframes bounceInDown {

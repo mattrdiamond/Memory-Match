@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Matching Game</title>
+    <title>Nom Nom: A rediculously sweet memory game!</title>
     <meta name="description" content="" />
     <link
       rel="stylesheet prefetch"
@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Quicksand&display=swap"
+      href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap"
       rel="stylesheet prefetch"
     />
     <link
@@ -63,80 +63,86 @@
         <ul class="deck">
           <li class="card">
             <img src="./img/popsicle.svg" alt="popsicle" />
-            <!-- <i class="fa fa-diamond"></i> -->
           </li>
           <li class="card">
-            <!-- <i class="fa fa-paper-plane-o"></i> -->
             <img src="./img/candy.svg" alt="candy" />
           </li>
           <li class="card match">
-            <!-- <i class="fa fa-anchor"></i> -->
             <img src="./img/cookies.svg" alt="cookies" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-bolt"></i> -->
             <img src="./img/cupcake.svg" alt="cupcake" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-cube"></i> -->
             <img src="./img/donut.svg" alt="donut" />
           </li>
           <li class="card match">
-            <!-- <i class="fa fa-anchor"></i> -->
             <img src="./img/cookies.svg" alt="cookies" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-leaf"></i> -->
             <img src="./img/icecream.svg" alt="ice cream" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-bicycle"></i> -->
             <img src="./img/pancakes.svg" alt="pancakes" />
           </li>
           <li class="card">
             <img src="./img/popsicle.svg" alt="popsicle" />
-            <!-- <i class="fa fa-diamond"></i> -->
           </li>
           <li class="card">
-            <!-- <i class="fa fa-bomb"></i> -->
             <img src="./img/pie.svg" alt="pie" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-leaf"></i> -->
             <img src="./img/icecream.svg" alt="ice cream" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-bomb"></i> -->
             <img src="./img/pie.svg" alt="pie" />
           </li>
           <li class="card open show">
-            <!-- <i class="fa fa-bolt"></i> -->
             <img src="./img/cupcake.svg" alt="cupcake" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-bicycle"></i> -->
             <img src="./img/pancakes.svg" alt="pancakes" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-paper-plane-o"></i> -->
             <img src="./img/candy.svg" alt="candy" />
           </li>
           <li class="card">
-            <!-- <i class="fa fa-cube"></i> -->
             <img src="./img/donut.svg" alt="donut" />
           </li>
         </ul>
       </div>
     </div>
     <!-- end deck -->
-    <!-- start modal -->
-    <aside class="modal">
+    <!-- start winner modal -->
+    <aside class="modal winner">
       <div class="modal-content">
-        <h4>Congratulations!</h4>
-        <p class="bold">You have an excellent memory!</p>
+        <img
+          class="modal-image"
+          src="./img/modal_winner.svg"
+          alt="Dessert cartoons celebrating"
+        />
+        <h4>Sweetness!</h4>
+        <p>You have an exceptional memory!</p>
         <p>Moves: <span class="modal-moves"></span></p>
         <p>Time: <span class="modal-time"></span></p>
         <p>Rating: <span class="modal-rating"></span></p>
+        <button class="play-again">Play Again!</button>
+      </div>
+    </aside>
+    <!-- end modal -->
+    <!-- start loser modal -->
+    <aside class="modal loser">
+      <div class="modal-content">
+        <img
+          class="modal-image"
+          src="./img/modal_loser.svg"
+          alt="Melting popsicle with sad face"
+        />
+        <h4>Ruh roh!</h4>
+        <p>
+          Your blood sugar is extremely low. It must be affecting your memory.
+          Grab a sweet treat and try again!
+        </p>
         <button class="play-again">Play Again!</button>
       </div>
     </aside>
