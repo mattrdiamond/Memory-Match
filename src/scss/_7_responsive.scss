@@ -1,28 +1,326 @@
-@media only screen and (max-width: 711px) {
-  /* .deck {
-    width: 93%;
-    min-height: 97vw;
-    padding: 25px;
-    transition: padding 0.5s ease;
+// @media (min-width: 1445px) {
+//   :root {
+//     --card-width: 10rem;
+//     --card-gap: 1.5rem;
+//   }
+// }
+
+// @media (min-width: 1600px) {
+//   :root {
+//     --card-width: 11rem;
+//   }
+// }
+
+// @media (min-width: 1900px) {
+//   :root {
+//     --card-width: 12rem;
+//   }
+// }
+
+// @media (min-width: 2200px) {
+//   :root {
+//     --card-width: 13rem;
+//   }
+// }
+
+// @media (min-height: 1000px) {
+//   :root {
+//     --card-width: 10rem;
+//     --card-gap: 1.5rem;
+//   }
+// }
+@media (min-width: 1000px) and (min-height: 1000px) {
+  :root {
+    --card-width: 10rem;
+    --card-gap: 1.5rem;
   }
 
-  .deck .card {
-    height: 18vw;
-    width: 18vw;
-  } */
+  header {
+    margin-bottom: 2rem;
+  }
+
+  .nom-logo > p {
+    font-size: 1.1rem;
+  }
+
+  .score-panel {
+    font-size: 1.1rem;
+
+    > div {
+      padding: 0.7rem 0.85rem;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+
+    .heart-container {
+      margin-bottom: 9px;
+    }
+
+    .hearts > i {
+      font-size: 1.2rem;
+    }
+
+    .timer {
+      min-width: 103px;
+      margin-right: 9px;
+    }
+  }
 }
 
-@media only screen and (max-width: 450px) {
-  /* .deck {
-    padding: 15px;
+@media (min-width: 1000px) and (min-height: 1100px) {
+  :root {
+    --card-width: 11rem;
   }
 
-  .deck .card {
-    height: 18.5vw;
-    width: 18.5vw;
-  } */
+  .nom-logo > p {
+    font-size: 1.15rem;
+  }
 
-  .modal-content {
-    width: 320px;
+  .score-panel {
+    font-size: 1.15rem;
+
+    > div {
+      padding: 0.8rem 1rem;
+    }
+
+    i {
+      font-size: 1.4rem;
+    }
+
+    .hearts > i {
+      font-size: 1.3rem;
+    }
+
+    .timer {
+      min-width: 113px;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 1200px) {
+  :root {
+    --card-width: 12rem;
+  }
+
+  .nom-logo > p {
+    font-size: 1.25rem;
+  }
+
+  .score-panel {
+    font-size: 1.25rem;
+
+    > div {
+      padding: 0.85rem 1.05rem;
+    }
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    .hearts > i {
+      font-size: 1.4rem;
+    }
+
+    .timer {
+      min-width: 120px;
+    }
+
+    .timer i,
+    .restart i {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 1300px) {
+  :root {
+    --card-width: 13rem;
+  }
+
+  header {
+    margin-bottom: 2.5rem;
+  }
+
+  .nom-logo > p {
+    font-size: 1.3rem;
+  }
+
+  .score-panel {
+    font-size: 1.3rem;
+
+    > div {
+      padding: 0.9rem 1.25rem;
+    }
+
+    i {
+      font-size: 1.6rem;
+    }
+
+    .hearts > i {
+      font-size: 1.5rem;
+    }
+
+    .timer {
+      min-width: 130px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+    --card-width: 8rem;
+  }
+
+  // .game-container {
+  //   min-height: calc(667px + 4rem);
+  // }
+
+  .score-panel {
+    width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
+  }
+
+  .nom-logo > p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .game-container {
+    // min-height: unset;
+    padding: 2rem 1rem;
+    // justify-content: flex-start;
+  }
+
+  // .game-inner-container {
+
+  // }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nom-logo {
+    margin-bottom: 1.25rem;
+  }
+
+  .score-panel {
+    width: 100%;
+    justify-content: center;
+
+    .heart-container {
+      flex-basis: auto;
+      margin-bottom: 0;
+      margin-right: 6px;
+
+      .moves.number {
+        margin-right: 0.4rem;
+      }
+    }
+
+    .restart {
+      flex: 0;
+    }
+
+    .timer {
+      min-width: 88px;
+    }
+  }
+
+  .deck {
+    .card {
+      // 25% - col gaps / 4
+      width: calc(25% - ((1rem * 3) / 4));
+      padding-bottom: calc(25% - ((1rem * 3) / 4));
+      margin: 0 1rem 1rem 0;
+      height: auto;
+      position: relative;
+      background-size: calc(100% + 2px);
+
+      > img {
+        position: absolute;
+      }
+
+      &.show > img {
+        padding: 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .score-panel {
+    font-size: 0.9rem;
+
+    i {
+      font-size: 1.1rem;
+    }
+
+    .hearts {
+      align-self: unset;
+
+      > i {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .deck {
+    .card {
+      width: calc(25% - ((0.75rem * 3) / 4));
+      padding-bottom: calc(25% - ((0.75rem * 3) / 4));
+      margin: 0 0.75rem 0.75rem 0;
+      box-shadow: 3px 3px 6px 0 rgba(92, 81, 68, 0.25);
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .score-panel {
+    i {
+      font-size: 1rem;
+    }
+
+    > div {
+      padding: 0.6rem;
+    }
+
+    .heart-container .moves.number {
+      margin-right: 0.3rem;
+    }
+
+    .hearts > i {
+      font-size: 0.95rem;
+
+      &:not(:last-child) {
+        margin-right: 0.2rem;
+      }
+    }
+
+    .timer {
+      min-width: 82px;
+    }
+
+    .timer i,
+    .restart i {
+      margin-right: 0.3rem;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .score-panel {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+
+    .hearts > i {
+      font-size: 0.9rem;
+    }
+
+    .timer {
+      min-width: 76px;
+    }
   }
 }

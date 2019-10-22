@@ -1,6 +1,22 @@
+.game-container {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  // height: 100%;
+  //min height = total game board height to prevent collapsing on shallow screens
+  // min-height: calc(731px + 4rem);
+}
+
+.game-inner-container {
+  max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
+  width: 100%;
+}
+
 .deck {
   width: 100%;
-  max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
+  // max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -13,7 +29,7 @@
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
-    margin: 0 15px 15px 0;
+    margin: 0 var(--card-gap) var(--card-gap) 0;
     background-image: url("../img/sprinkles.svg");
     background-color: $white;
     background-repeat: no-repeat;

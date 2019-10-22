@@ -1,6 +1,6 @@
 :root {
-  --card-width: 155px;
-  --card-gap: 15px;
+  --card-width: 9rem;
+  --card-gap: 1rem;
 }
 
 *,
@@ -54,25 +54,6 @@ button:hover {
   background: #f2ae2f;
 }
 
-.game-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 2rem;
-  height: 100%;
-  min-height: calc(774px + 4rem);
-}
-
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,7 +62,6 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 1.5rem;
-  position: relative;
 }
 
 .nom-logo {
@@ -103,7 +83,7 @@ header {
   margin: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  font-size: 0.93rem;
+  font-size: 0.98rem;
   margin-top: -5px;
   color: #7a3382;
 }
@@ -123,12 +103,15 @@ header {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   color: #646464;
+  font-family: "Fredoka One", sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 .score-panel > div {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 6px;
-  padding: 0.6rem 0.9rem;
+  padding: 0.6rem 0.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,7 +121,9 @@ header {
 }
 
 .score-panel i {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  -webkit-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease;
 }
 
 .score-panel .heart-container {
@@ -166,7 +151,9 @@ header {
 
 .score-panel .hearts > i {
   color: #ff5363;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  -webkit-transition: font-size 0.3s ease;
+  transition: font-size 0.3s ease;
 }
 
 .score-panel .hearts > i:not(:last-child) {
@@ -209,7 +196,7 @@ header {
 
 .score-panel .timer {
   margin-right: 6px;
-  min-width: 100px;
+  min-width: 92px;
 }
 
 .score-panel .timer i {
@@ -222,9 +209,27 @@ header {
   display: inline-block;
 }
 
+.game-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+}
+
+.game-inner-container {
+  max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
+  width: 100%;
+}
+
 .deck {
   width: 100%;
-  max-width: calc((var(--card-width) * 4) + (var(--card-gap) * 3));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -244,7 +249,7 @@ header {
   cursor: pointer;
   -webkit-box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
           box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
-  margin: 0 15px 15px 0;
+  margin: 0 var(--card-gap) var(--card-gap) 0;
   background-image: url("../img/sprinkles.svg");
   background-color: #f3f2f7;
   background-repeat: no-repeat;
@@ -676,31 +681,243 @@ header {
   }
 }
 
-@media only screen and (max-width: 711px) {
-  /* .deck {
-    width: 93%;
-    min-height: 97vw;
-    padding: 25px;
-    transition: padding 0.5s ease;
+@media (min-width: 1000px) and (min-height: 1000px) {
+  :root {
+    --card-width: 10rem;
+    --card-gap: 1.5rem;
   }
-
-  .deck .card {
-    height: 18vw;
-    width: 18vw;
-  } */
+  header {
+    margin-bottom: 2rem;
+  }
+  .nom-logo > p {
+    font-size: 1.1rem;
+  }
+  .score-panel {
+    font-size: 1.1rem;
+  }
+  .score-panel > div {
+    padding: 0.7rem 0.85rem;
+  }
+  .score-panel i {
+    font-size: 1.3rem;
+  }
+  .score-panel .heart-container {
+    margin-bottom: 9px;
+  }
+  .score-panel .hearts > i {
+    font-size: 1.2rem;
+  }
+  .score-panel .timer {
+    min-width: 103px;
+    margin-right: 9px;
+  }
 }
 
-@media only screen and (max-width: 450px) {
-  /* .deck {
-    padding: 15px;
+@media (min-width: 1000px) and (min-height: 1100px) {
+  :root {
+    --card-width: 11rem;
   }
+  .nom-logo > p {
+    font-size: 1.15rem;
+  }
+  .score-panel {
+    font-size: 1.15rem;
+  }
+  .score-panel > div {
+    padding: 0.8rem 1rem;
+  }
+  .score-panel i {
+    font-size: 1.4rem;
+  }
+  .score-panel .hearts > i {
+    font-size: 1.3rem;
+  }
+  .score-panel .timer {
+    min-width: 113px;
+  }
+}
 
+@media (min-width: 1000px) and (min-height: 1200px) {
+  :root {
+    --card-width: 12rem;
+  }
+  .nom-logo > p {
+    font-size: 1.25rem;
+  }
+  .score-panel {
+    font-size: 1.25rem;
+  }
+  .score-panel > div {
+    padding: 0.85rem 1.05rem;
+  }
+  .score-panel i {
+    font-size: 1.5rem;
+  }
+  .score-panel .hearts > i {
+    font-size: 1.4rem;
+  }
+  .score-panel .timer {
+    min-width: 120px;
+  }
+  .score-panel .timer i,
+  .score-panel .restart i {
+    margin-right: 0.5rem;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 1300px) {
+  :root {
+    --card-width: 13rem;
+  }
+  header {
+    margin-bottom: 2.5rem;
+  }
+  .nom-logo > p {
+    font-size: 1.3rem;
+  }
+  .score-panel {
+    font-size: 1.3rem;
+  }
+  .score-panel > div {
+    padding: 0.9rem 1.25rem;
+  }
+  .score-panel i {
+    font-size: 1.6rem;
+  }
+  .score-panel .hearts > i {
+    font-size: 1.5rem;
+  }
+  .score-panel .timer {
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+    --card-width: 8rem;
+  }
+  .score-panel {
+    width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
+  }
+  .nom-logo > p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .game-container {
+    padding: 2rem 1rem;
+  }
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nom-logo {
+    margin-bottom: 1.25rem;
+  }
+  .score-panel {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .score-panel .heart-container {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    margin-bottom: 0;
+    margin-right: 6px;
+  }
+  .score-panel .heart-container .moves.number {
+    margin-right: 0.4rem;
+  }
+  .score-panel .restart {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+  }
+  .score-panel .timer {
+    min-width: 88px;
+  }
   .deck .card {
-    height: 18.5vw;
-    width: 18.5vw;
-  } */
-  .modal-content {
-    width: 320px;
+    width: calc(25% - ((1rem * 3) / 4));
+    padding-bottom: calc(25% - ((1rem * 3) / 4));
+    margin: 0 1rem 1rem 0;
+    height: auto;
+    position: relative;
+    background-size: calc(100% + 2px);
+  }
+  .deck .card > img {
+    position: absolute;
+  }
+  .deck .card.show > img {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .score-panel {
+    font-size: 0.9rem;
+  }
+  .score-panel i {
+    font-size: 1.1rem;
+  }
+  .score-panel .hearts {
+    -ms-flex-item-align: unset;
+        -ms-grid-row-align: unset;
+        align-self: unset;
+  }
+  .score-panel .hearts > i {
+    font-size: 1rem;
+  }
+  .deck .card {
+    width: calc(25% - ((0.75rem * 3) / 4));
+    padding-bottom: calc(25% - ((0.75rem * 3) / 4));
+    margin: 0 0.75rem 0.75rem 0;
+    -webkit-box-shadow: 3px 3px 6px 0 rgba(92, 81, 68, 0.25);
+            box-shadow: 3px 3px 6px 0 rgba(92, 81, 68, 0.25);
+  }
+}
+
+@media (max-width: 420px) {
+  .score-panel i {
+    font-size: 1rem;
+  }
+  .score-panel > div {
+    padding: 0.6rem;
+  }
+  .score-panel .heart-container .moves.number {
+    margin-right: 0.3rem;
+  }
+  .score-panel .hearts > i {
+    font-size: 0.95rem;
+  }
+  .score-panel .hearts > i:not(:last-child) {
+    margin-right: 0.2rem;
+  }
+  .score-panel .timer {
+    min-width: 82px;
+  }
+  .score-panel .timer i,
+  .score-panel .restart i {
+    margin-right: 0.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .score-panel {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+  }
+  .score-panel .hearts > i {
+    font-size: 0.9rem;
+  }
+  .score-panel .timer {
+    min-width: 76px;
   }
 }
 /*# sourceMappingURL=index.css.map */
