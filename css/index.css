@@ -384,6 +384,7 @@ header {
 
 .modal p {
   margin: 0;
+  margin: 0.25em 0 0;
   color: #7b7b7b;
   font-family: "Quicksand", sans-serif;
   letter-spacing: 0;
@@ -908,7 +909,6 @@ header {
   }
   .modal p {
     font-size: 3.5vw;
-    line-height: 2;
   }
   .modal.loser.p {
     font-size: 3.4vw;
