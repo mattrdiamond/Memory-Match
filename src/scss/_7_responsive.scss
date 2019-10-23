@@ -1,34 +1,43 @@
-// @media (min-width: 1445px) {
-//   :root {
-//     --card-width: 10rem;
-//     --card-gap: 1.5rem;
-//   }
-// }
+@media (min-width: 700px) and (max-height: 765px) {
+  :root {
+    --card-width: 8rem;
+  }
 
-// @media (min-width: 1600px) {
-//   :root {
-//     --card-width: 11rem;
-//   }
-// }
+  .score-panel {
+    width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
+  }
 
-// @media (min-width: 1900px) {
-//   :root {
-//     --card-width: 12rem;
-//   }
-// }
+  .nom-logo > p {
+    font-size: 0.9rem;
+  }
+}
 
-// @media (min-width: 2200px) {
-//   :root {
-//     --card-width: 13rem;
-//   }
-// }
+@media (min-width: 700px) and (max-height: 700px) {
+  :root {
+    --card-width: 7rem;
+  }
 
-// @media (min-height: 1000px) {
-//   :root {
-//     --card-width: 10rem;
-//     --card-gap: 1.5rem;
-//   }
-// }
+  .nom-logo > p {
+    font-size: 0.8rem;
+  }
+
+  .score-panel {
+    font-size: 0.8rem;
+
+    i {
+      font-size: 1.1rem;
+    }
+
+    .hearts > i {
+      font-size: 1rem;
+    }
+
+    .timer {
+      min-width: 83px;
+    }
+  }
+}
+
 @media (min-width: 1000px) and (min-height: 1000px) {
   :root {
     --card-width: 10rem;
@@ -168,14 +177,10 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
   :root {
     --card-width: 8rem;
   }
-
-  // .game-container {
-  //   min-height: calc(667px + 4rem);
-  // }
 
   .score-panel {
     width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));

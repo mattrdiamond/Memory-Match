@@ -681,6 +681,39 @@ header {
   }
 }
 
+@media (min-width: 700px) and (max-height: 765px) {
+  :root {
+    --card-width: 8rem;
+  }
+  .score-panel {
+    width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
+  }
+  .nom-logo > p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 700px) and (max-height: 700px) {
+  :root {
+    --card-width: 7rem;
+  }
+  .nom-logo > p {
+    font-size: 0.8rem;
+  }
+  .score-panel {
+    font-size: 0.8rem;
+  }
+  .score-panel i {
+    font-size: 1.1rem;
+  }
+  .score-panel .hearts > i {
+    font-size: 1rem;
+  }
+  .score-panel .timer {
+    min-width: 83px;
+  }
+}
+
 @media (min-width: 1000px) and (min-height: 1000px) {
   :root {
     --card-width: 10rem;
@@ -792,7 +825,7 @@ header {
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
   :root {
     --card-width: 8rem;
   }
