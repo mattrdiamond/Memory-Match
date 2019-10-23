@@ -2,7 +2,6 @@ header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
-  // position: relative;
 }
 
 .nom-logo {
@@ -11,7 +10,6 @@ header {
   flex-direction: column;
   justify-content: space-between;
   font-family: $display;
-  // transition: width 0.3s ease;
 
   > p {
     margin: 0;
@@ -34,7 +32,6 @@ header {
   font-family: $display;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
-  // transition: font-size 0.3s ease;
 
   > div {
     background: $white-opaque;
@@ -46,7 +43,6 @@ header {
 
   i {
     font-size: 1.2rem;
-    transition: font-size 0.3s ease;
   }
 
   .heart-container {
@@ -65,7 +61,6 @@ header {
     > i {
       color: $red;
       font-size: 1.1rem;
-      transition: font-size 0.3s ease;
 
       &:not(:last-child) {
         margin-right: 0.25rem;
