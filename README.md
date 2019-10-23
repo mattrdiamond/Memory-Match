@@ -1,4 +1,4 @@
-# Nom Nom: A rediculously sweet memory game!
+# Nom Nom: A Rediculously Sweet Memory Game!
 
 ## Description
 
@@ -8,10 +8,10 @@ This incredibly tasty memory card game was built using HTML, CSS and JavaScript.
 
 Incorrect guesses will cause your blood sugar to drop, so choose wisely! You will be scored based on your final health rating.
 
-❤️❤️❤️❤️= 11 moves or less...amazing!
-❤️❤️❤️= 15 moves or less...not too shabby!
-❤️❤️️= 19 moves or less...pretty, pretty good.
-❤️= 23 moves or less...you can do better!
+❤️❤️❤️❤️= 11 moves or less...amazing!<br/>
+❤️❤️❤️= 15 moves or less...not too shabby!<br/>
+❤️❤️️= 19 moves or less...pretty, pretty good.<br/>
+❤️= 23 moves or less...you can do better!<br/>
 
 ## Running Instructions
 
