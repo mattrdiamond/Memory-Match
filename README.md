@@ -15,7 +15,7 @@ Incorrect guesses will cause your blood sugar to drop, so choose wisely! You wil
 
 ## Running Instructions
 
-Visit the live version [here](https://mattrdiamond.github.io/Nom-Nom-Memory-Game/), or follow the instructions below to run locally.
+👉 Check out the [live version](https://mattrdiamond.github.io/Nom-Nom-Memory-Game/), or follow the instructions below to run locally.
 
 1. Click on "Clone or Download" on this repository page to download .zip file.
 2. Extract the folder contents and open "index.html" in a browser to run the application.
