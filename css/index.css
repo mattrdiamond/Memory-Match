@@ -461,6 +461,10 @@ header {
   color: #ff5363;
 }
 
+.modal-rating .inactive {
+  color: #eaeaea;
+}
+
 @-webkit-keyframes bounceInDown {
   from,
   60%,
