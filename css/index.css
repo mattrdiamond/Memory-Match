@@ -863,7 +863,7 @@ header {
             flex: 0;
   }
   .score-panel .timer {
-    min-width: 88px;
+    min-width: 91px;
   }
   .deck .card {
     width: calc(25% - ((1rem * 3) / 4));
@@ -892,6 +892,9 @@ header {
   }
   .score-panel .hearts > i {
     font-size: 1rem;
+  }
+  .score-panel .timer {
+    min-width: 87px;
   }
   .deck .card {
     width: calc(25% - ((0.75rem * 3) / 4));
@@ -948,7 +951,7 @@ header {
     margin-right: 0.2rem;
   }
   .score-panel .timer {
-    min-width: 82px;
+    min-width: 81px;
   }
   .score-panel .timer i,
   .score-panel .restart i {
