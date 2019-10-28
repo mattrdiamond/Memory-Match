@@ -1,6 +1,7 @@
 :root {
   --card-width: 9rem;
   --card-gap: 1rem;
+  --border-radius: 4px;
 }
 
 *,
@@ -65,7 +66,8 @@ header {
 }
 
 .nom-logo {
-  width: calc((var(--card-width) * 2) + (var(--card-gap)));
+  width: calc( (var(--card-width) * 2) + (var(--card-gap)) - (var(--border-radius)));
+  padding-left: var(--border-radius);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,19 +75,24 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   font-family: "Fredoka One", sans-serif;
+}
+
+.nom-logo > img {
+  height: 3.375rem;
 }
 
 .nom-logo > p {
   margin: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  font-size: 0.98rem;
-  margin-top: -5px;
+  font-size: 0.92rem;
+  margin-top: 0.5rem;
   color: #7a3382;
+  white-space: nowrap;
 }
 
 .score-panel {
@@ -243,8 +250,8 @@ header {
   color: #ffffff;
   border-radius: 8px;
   cursor: pointer;
-  -webkit-box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
-          box-shadow: 5px 5px 10px 0 rgba(92, 81, 68, 0.25);
+  -webkit-box-shadow: 3px 3px 7px 0 rgba(92, 81, 68, 0.2);
+          box-shadow: 3px 3px 7px 0 rgba(92, 81, 68, 0.2);
   margin: 0 var(--card-gap) var(--card-gap) 0;
   background-image: url("../img/sprinkles.svg");
   background-color: #f3f2f7;
@@ -388,6 +395,7 @@ header {
   color: #7b7b7b;
   font-family: "Quicksand", sans-serif;
   letter-spacing: 0;
+  font-weight: 700;
 }
 
 .modal p:first-of-type {
@@ -689,8 +697,16 @@ header {
   .score-panel {
     width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
   }
+  .nom-logo {
+    width: calc((var(--card-width) * 2) + (var(--card-gap)));
+    padding-left: 0;
+  }
+  .nom-logo > img {
+    height: 3.125rem;
+  }
   .nom-logo > p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -699,8 +715,12 @@ header {
     --card-width: 7rem;
     --card-gap: 0.875rem;
   }
+  .nom-logo > img {
+    height: 2.75rem;
+  }
   .nom-logo > p {
-    font-size: 0.8rem;
+    font-size: 0.79rem;
+    margin-top: 0.5rem;
   }
   .score-panel {
     font-size: 0.8rem;
@@ -716,6 +736,10 @@ header {
   }
   .score-panel .timer {
     min-width: 83px;
+  }
+  .deck.card {
+    -webkit-box-shadow: 2px 2px 6px 0 rgba(92, 81, 68, 0.25);
+            box-shadow: 2px 2px 6px 0 rgba(92, 81, 68, 0.25);
   }
 }
 
@@ -844,7 +868,15 @@ header {
             align-items: center;
   }
   .nom-logo {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+    width: 290px;
+  }
+  .nom-logo > img {
+    height: 3.375rem;
+  }
+  .nom-logo > p {
+    font-size: 0.92rem;
   }
   .score-panel {
     width: 100%;
@@ -882,7 +914,16 @@ header {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .nom-logo {
+    width: 275px;
+  }
+  .nom-logo > img {
+    height: 3.125rem;
+  }
+  .nom-logo > p {
+    font-size: 0.9rem;
+  }
   .score-panel {
     font-size: 0.9rem;
   }
@@ -900,12 +941,13 @@ header {
   .score-panel .timer {
     min-width: 87px;
   }
+}
+
+@media (max-width: 550px) {
   .deck .card {
     width: calc(25% - ((0.75rem * 3) / 4));
     padding-bottom: calc(25% - ((0.75rem * 3) / 4));
     margin: 0 0.75rem 0.75rem 0;
-    -webkit-box-shadow: 3px 3px 6px 0 rgba(92, 81, 68, 0.25);
-            box-shadow: 3px 3px 6px 0 rgba(92, 81, 68, 0.25);
   }
   .modal.loser .modal-content,
   .modal-content {
@@ -932,12 +974,22 @@ header {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
   :root {
     --card-width: 8rem;
   }
+  .nom-logo {
+    width: 250px;
+  }
+  .nom-logo > img {
+    height: 2.95rem;
+  }
   .nom-logo > p {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
+  }
+  .score-panel {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
   }
   .score-panel i {
     font-size: 1rem;
@@ -949,30 +1001,17 @@ header {
     margin-right: 0.3rem;
   }
   .score-panel .hearts > i {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
   .score-panel .hearts > i:not(:last-child) {
     margin-right: 0.2rem;
   }
   .score-panel .timer {
-    min-width: 81px;
+    min-width: 76px;
   }
   .score-panel .timer i,
   .score-panel .restart i {
     margin-right: 0.3rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .score-panel {
-    font-size: 0.85rem;
-    letter-spacing: 0.3px;
-  }
-  .score-panel .hearts > i {
-    font-size: 0.9rem;
-  }
-  .score-panel .timer {
-    min-width: 76px;
   }
 }
 

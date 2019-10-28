@@ -5,19 +5,27 @@ header {
 }
 
 .nom-logo {
-  width: calc((var(--card-width) * 2) + (var(--card-gap)));
+  width: calc(
+    (var(--card-width) * 2) + (var(--card-gap)) - (var(--border-radius))
+  );
+  padding-left: var(--border-radius);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-family: $display;
+
+  > img {
+    height: 3.375rem;
+  }
 
   > p {
     margin: 0;
     text-align: center;
     letter-spacing: 0.5px;
-    font-size: 0.98rem;
-    margin-top: -5px;
+    font-size: 0.92rem;
+    margin-top: 0.5rem;
     color: $purple-dark;
+    white-space: nowrap;
   }
 }
 
