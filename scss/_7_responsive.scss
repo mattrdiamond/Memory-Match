@@ -333,6 +333,10 @@
       width: calc(25% - ((0.75rem * 3) / 4));
       padding-bottom: calc(25% - ((0.75rem * 3) / 4));
       margin: 0 0.75rem 0.75rem 0;
+
+      &.show > img {
+        padding: 17%;
+      }
     }
   }
   .modal.loser .modal-content,
