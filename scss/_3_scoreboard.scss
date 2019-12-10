@@ -6,14 +6,12 @@ header {
 
 .nom-logo {
   width: calc((var(--card-width) * 2) + (var(--card-gap)));
-  // padding-left: var(--border-radius);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   font-family: $display;
 
   > img {
-    // height: 3.375rem;
     width: 100%;
   }
 
@@ -23,7 +21,6 @@ header {
     letter-spacing: 0.75px;
     font-size: 0.96rem;
     margin-left: 0.25rem;
-    // margin-top: 0.02rem;
     color: $purple-dark;
     white-space: nowrap;
   }
