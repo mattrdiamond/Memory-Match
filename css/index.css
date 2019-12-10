@@ -67,7 +67,8 @@ header {
 }
 
 .nom-logo {
-  width: calc((var(--card-width) * 2) + (var(--card-gap)));
+  width: calc( (var(--card-width) * 2) + (var(--card-gap)) - (var(--border-radius)));
+  padding-left: var(--border-radius);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,15 +83,15 @@ header {
 }
 
 .nom-logo > img {
-  width: 100%;
+  height: 3.375rem;
 }
 
 .nom-logo > p {
   margin: 0;
   text-align: center;
-  letter-spacing: 0.75px;
-  font-size: 0.96rem;
-  margin-left: 0.25rem;
+  letter-spacing: 0.5px;
+  font-size: 0.92rem;
+  margin-top: 0.5rem;
   color: #7a3382;
   white-space: nowrap;
 }
@@ -697,8 +698,16 @@ header {
   .score-panel {
     width: calc(var(--card-width) + var(--card-gap) + (var(--card-width) / 2));
   }
+  .nom-logo {
+    width: calc((var(--card-width) * 2) + (var(--card-gap)));
+    padding-left: 0;
+  }
+  .nom-logo > img {
+    height: 3.125rem;
+  }
   .nom-logo > p {
     font-size: 0.85rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -707,9 +716,12 @@ header {
     --card-width: 7rem;
     --card-gap: 0.875rem;
   }
+  .nom-logo > img {
+    height: 2.75rem;
+  }
   .nom-logo > p {
-    font-size: 0.77rem;
-    letter-spacing: 0.4px;
+    font-size: 0.79rem;
+    margin-top: 0.5rem;
   }
   .score-panel {
     font-size: 0.8rem;
@@ -740,8 +752,11 @@ header {
   header {
     margin-bottom: 2rem;
   }
+  .nom-logo > img {
+    height: 3.9rem;
+  }
   .nom-logo > p {
-    font-size: 1.1rem;
+    font-size: 1.06rem;
   }
   .score-panel {
     font-size: 1.1rem;
@@ -768,8 +783,11 @@ header {
   :root {
     --card-width: 11rem;
   }
+  .nom-logo > img {
+    height: 4.25rem;
+  }
   .nom-logo > p {
-    font-size: 1.22rem;
+    font-size: 1.17rem;
   }
   .score-panel {
     font-size: 1.15rem;
@@ -792,8 +810,12 @@ header {
   :root {
     --card-width: 12rem;
   }
+  .nom-logo > img {
+    height: 4.5rem;
+  }
   .nom-logo > p {
-    font-size: 1.33rem;
+    font-size: 1.27rem;
+    margin-top: 0.6rem;
   }
   .score-panel {
     font-size: 1.25rem;
@@ -824,10 +846,14 @@ header {
     margin-bottom: 2.5rem;
   }
   .nom-logo {
+    padding-left: 8px;
     width: calc((var(--card-width) * 2) + (var(--card-gap)) - 8px);
   }
+  .nom-logo > img {
+    height: 4.8rem;
+  }
   .nom-logo > p {
-    font-size: 1.42em;
+    font-size: 1.37rem;
   }
   .score-panel {
     font-size: 1.3rem;
@@ -862,11 +888,13 @@ header {
   .nom-logo {
     margin-bottom: 1.5rem;
     padding-left: 0;
-    width: 305px;
+    width: 290px;
+  }
+  .nom-logo > img {
+    height: 3.375rem;
   }
   .nom-logo > p {
-    font-size: 0.97rem;
-    margin-top: 0.07rem;
+    font-size: 0.92rem;
   }
   .score-panel {
     width: 100%;
@@ -906,10 +934,13 @@ header {
 
 @media (max-width: 600px) {
   .nom-logo {
-    width: 290px;
+    width: 275px;
+  }
+  .nom-logo > img {
+    height: 3.125rem;
   }
   .nom-logo > p {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
   }
   .score-panel {
     font-size: 0.9rem;
@@ -969,11 +1000,13 @@ header {
     --card-width: 8rem;
   }
   .nom-logo {
-    width: 255px;
+    width: 250px;
+  }
+  .nom-logo > img {
+    height: 2.95rem;
   }
   .nom-logo > p {
-    font-size: 0.83rem;
-    letter-spacing: 0.4px;
+    font-size: 0.84rem;
   }
   .score-panel {
     font-size: 0.85rem;

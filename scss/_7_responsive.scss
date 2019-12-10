@@ -8,16 +8,16 @@
   }
 
   .nom-logo {
-    // width: calc((var(--card-width) * 2) + (var(--card-gap)));
-    // padding-left: 0;
+    width: calc((var(--card-width) * 2) + (var(--card-gap)));
+    padding-left: 0;
 
-    // > img {
-    //   height: 3.125rem;
-    // }
+    > img {
+      height: 3.125rem;
+    }
 
     > p {
       font-size: 0.85rem;
-      // margin-top: 0.5rem;
+      margin-top: 0.5rem;
     }
   }
 }
@@ -29,14 +29,13 @@
   }
 
   .nom-logo {
-    // > img {
-    //   height: 2.75rem;
-    // }
+    > img {
+      height: 2.75rem;
+    }
 
     > p {
-      font-size: 0.77rem;
-      letter-spacing: 0.4px;
-      // margin-top: 0.5rem;
+      font-size: 0.79rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -76,12 +75,12 @@
   }
 
   .nom-logo {
-    // > img {
-    //   height: 3.9rem;
-    // }
+    > img {
+      height: 3.9rem;
+    }
 
     > p {
-      font-size: 1.1rem;
+      font-size: 1.06rem;
     }
   }
 
@@ -117,12 +116,12 @@
   }
 
   .nom-logo {
-    // > img {
-    //   height: 4.25rem;
-    // }
+    > img {
+      height: 4.25rem;
+    }
 
     > p {
-      font-size: 1.22rem;
+      font-size: 1.17rem;
     }
   }
 
@@ -153,13 +152,13 @@
   }
 
   .nom-logo {
-    // > img {
-    //   height: 4.5rem;
-    // }
+    > img {
+      height: 4.5rem;
+    }
 
     > p {
-      font-size: 1.33rem;
-      // margin-top: 0.6rem;
+      font-size: 1.27rem;
+      margin-top: 0.6rem;
     }
   }
 
@@ -199,15 +198,15 @@
   }
 
   .nom-logo {
-    // padding-left: 8px;
+    padding-left: 8px;
     width: calc((var(--card-width) * 2) + (var(--card-gap)) - 8px);
 
-    // > img {
-    //   height: 4.8rem;
-    // }
+    > img {
+      height: 4.8rem;
+    }
 
     > p {
-      font-size: 1.42em;
+      font-size: 1.37rem;
     }
   }
 
@@ -245,15 +244,14 @@
   .nom-logo {
     margin-bottom: 1.5rem;
     padding-left: 0;
-    width: 305px;
+    width: 290px;
 
-    // > img {
-    //   height: 3.375rem;
-    // }
+    > img {
+      height: 3.375rem;
+    }
 
     > p {
-      font-size: 0.97rem;
-      margin-top: 0.07rem;
+      font-size: 0.92rem;
     }
   }
 
@@ -298,14 +296,14 @@
 
 @media (max-width: 600px) {
   .nom-logo {
-    width: 290px;
+    width: 275px;
 
-    // > img {
-    //   height: 3.125rem;
-    // }
+    > img {
+      height: 3.125rem;
+    }
 
     > p {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
   }
   .score-panel {
@@ -380,15 +378,14 @@
   }
 
   .nom-logo {
-    width: 255px;
+    width: 250px;
 
-    // > img {
-    //   height: 2.95rem;
-    // }
+    > img {
+      height: 2.95rem;
+    }
 
     > p {
-      font-size: 0.83rem;
-      letter-spacing: 0.4px;
+      font-size: 0.84rem;
     }
   }
 
